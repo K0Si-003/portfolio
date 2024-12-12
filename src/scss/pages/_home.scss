@@ -1,0 +1,16 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+    background-image: linear-gradient(
+        190deg,
+        #16313b 0%,
+        #132c35 10%,
+        #0e1f25 30%,
+        #06131d 60%,
+        #03090e 100%
+    );
+}
