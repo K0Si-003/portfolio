@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { isMobile } from 'react-device-detect'
 
 export default function Particles() {
     const canvasRef = useRef(null)
@@ -8,14 +9,14 @@ export default function Particles() {
         const ctx = canvas.getContext('2d')
 
         let particles = []
-        const particleCount = 300
+        let particleCount = isMobile ? 100 : 300
         const maxSpeed = 0.2
-        const maxSize = 5
+        const maxSize = isMobile ? 4 : 5
         const particleColor = 'hsla(0 0% 100% / 0.2)'
-        const connectionDistance = 50
+        const connectionDistance = isMobile ? 35 : 50
         const connectionColor = 'hsla(0 0% 100% / 0.1)'
-        const repulsionForce = 0.02
-        const repulsionDistance = 150
+        const repulsionForce = 0.02 
+        const repulsionDistance = isMobile ? 50 : 150
         let mouseX = null
         let mouseY = null
 
@@ -35,6 +36,7 @@ export default function Particles() {
         // Add event listeners to the window
         window.addEventListener('resize', () => {
             resizeCanvas()
+            particles = []
             initParticles()
         })
         window.addEventListener('mousemove', (e) => {
@@ -122,6 +124,7 @@ export default function Particles() {
             window.removeEventListener('resize', resizeCanvas)
             window.removeEventListener('mousemove', setMousePosition)
         }
+
     }, [canvasRef])
 
     return <canvas ref={canvasRef} className="particles" />
