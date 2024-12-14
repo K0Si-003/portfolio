@@ -1,15 +1,39 @@
-import { NavLink } from "react-router";
+import { useState } from 'react'
+import { NavLink } from 'react-router'
+import Socials from './Socials.jsx'
+import Hamburger from './Hamburger.jsx'
 
 export default function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
+
     return (
-        <header>
-            <nav>
-                <ul>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/projects">Projects</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
+        <header className="header">
+            <Socials />
+            <Hamburger onToggle={toggleMenu} isMenuOpen={isMenuOpen} />
+            <nav
+                className={`menu ${isMenuOpen ? 'is-active' : ''}`}
+                role="navigation"
+            >
+                <ul className="menu__wrapper">
+                    <li>
+                        <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about" onClick={toggleMenu}>About</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/projects" onClick={toggleMenu}>Projects</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact" onClick={toggleMenu}>Contact</NavLink>
+                    </li>
                 </ul>
+                <div className="menu__socials">
+                    <Socials />
+                </div>
             </nav>
         </header>
     )
