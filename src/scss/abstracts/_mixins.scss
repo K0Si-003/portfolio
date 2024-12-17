@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../abstracts/variables' as *;
 // Respond-to mixin
 // ex. @include respond-to("medium-up") {...}
@@ -28,14 +29,13 @@ $bp-aliases: (
   // If the key exists in the map
   @if map-has-key($bp-aliases, $name) {
     // Prints a media query based on the value
-    @media #{inspect(map-get($bp-aliases, $name))} {
+    @media #{inspect(map.get($bp-aliases, $name))} {
       @content;
     }
   }
 
   // If the key doesn't exist in the map
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$name}`. "
-    +"Please make sure it is defined in `$bp-aliases` map.";
+    @warn "Unfortunately, no value could be retrieved from `#{$name}`. " (+"Please make sure it is defined in `$bp-aliases` map.");
   }
 }

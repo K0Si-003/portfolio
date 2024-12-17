@@ -1,20 +1,18 @@
-// ----------------
-// Sass config and variables
-// ----------------
+@use 'sass:map';
 
 // ----------------
 // Breakpoints
 // ----------------
 
 $breakpoints: (
-  sm: 576px,
-  md: 992px,
-  lg: 1400px,
+    sm: 576px,
+    md: 992px,
+    lg: 1400px,
 ) !default;
 
-$small: map-get($breakpoints, sm) !default;
-$medium: map-get($breakpoints, md) !default;
-$large: map-get($breakpoints, lg) !default;
+$small: map.get($breakpoints, sm) !default;
+$medium: map.get($breakpoints, md) !default;
+$large: map.get($breakpoints, lg) !default;
 
 // ----------------
 // Colors
@@ -23,3 +21,13 @@ $large: map-get($breakpoints, lg) !default;
 $text-light: hsl(222.86, 10.45%, 86.86%);
 $background: hsl(0, 0%, 13.73%);
 $background-accent: hsl(216, 3.36%, 29.22%);
+
+// ----------------
+// Hamburger
+// ----------------
+
+$hamburger-width: 35px !default;
+$hamburger-height: 3px !default;
+$hamburger-spacing: 7px !default;
+$hamburger-border-radius: 4px !default;
+

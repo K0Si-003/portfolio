@@ -1,10 +1,30 @@
-.socials {
+@use '../abstracts' as *;
+
+.header__socials,
+.menu__socials {
     display: flex;
-    margin-right: 2rem;
+    z-index: 200;
+}
+
+.header__socials {
+    @include respond-to("medium") {
+        display: none;
+    }
+}
+
+.menu__socials {
+    @include respond-to("medium-up") {
+        display: none;
+    }
 }
 
 .socials__link {
-    padding: 0 0.8rem;
+    margin-right: 2rem;
+
+    @include respond-to("medium") {
+        margin-right: 0;
+        padding: 1rem;
+    }
 }
 
 .socials__icon {

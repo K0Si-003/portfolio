@@ -1,95 +1,95 @@
 @use '../abstracts' as *;
+@use 'sass:math';
 
 .hamburger {
-    margin-right: 1rem;
-    transition: opacity 0.15s linear, filter 0.15s linear;
+    transition: filter 0.15s linear;
     cursor: pointer;
     z-index: 200;
 
-    &:hover {
-        filter: brightness(0.7);
-    }
-
-    &.is-active:hover {
-        filter: brightness(0.7);
+    @include respond-to("medium-up") {
+        &:hover {
+            filter: brightness(0.7);
+        }
+    
+        &.is-active {
+            &:hover {
+                filter: brightness(0.7);
+            }
+        }
     }
 }
 
-// .hamburger:hover {
-//     filter: brightness(0.7);
-// }
-
-// .hamburger.is-active:hover {
-//     filter: brightness(0.7);
-// }
-
 .hamburger-box {
-    width: 30px;
-    height: 4px;
     display: inline-block;
     position: relative;
+    width: $hamburger-width;
+    height: $hamburger-height * 3 + $hamburger-spacing * 2;
 }
 
 .hamburger-inner {
     display: block;
     top: 50%;
-    margin-top: -5px;
+    margin-top: math.div($hamburger-height, -2);
+
+    &,
+    &::before,
+    &::after {
+        position: absolute;
+        width: $hamburger-width;
+        height: $hamburger-height;
+        background-color: white;
+        border-radius: $hamburger-border-radius;
+        transition: transform 0.15s linear;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+    }
+
+    &::before {
+        top: ($hamburger-spacing + $hamburger-height) * -1;
+    }
+
+    &::after {
+        bottom: ($hamburger-spacing + $hamburger-height) * -1;
+    }
 }
 
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-    width: 40px;
-    height: 3px;
-    background-color: $text-light;
-    border-radius: 1px;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-}
+.hamburger--spin {
+    .hamburger-inner {
+        transition-duration: 0.22s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
-.hamburger-inner {
-    width: 30px;
-}
+        &::before {
+            transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+        }
 
-.hamburger-inner::before,
-.hamburger-inner::after {
-    content: '';
-    display: block;
-}
+        &::after {
+            transition: bottom 0.1s 0.25s ease-in,
+                transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+    }
 
-.hamburger-inner::before {
-    top: -10px;
-}
+    &.is-active {
+        .hamburger-inner {
+            transform: rotate(225deg);
+            transition-delay: 0.12s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 
-.hamburger-inner::after {
-    bottom: -10px;
-}
+            &::before {
+                top: 0;
+                opacity: 0;
+                transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+            }
 
-.hamburger-anim .hamburger-box {
-    perspective: 80px;
-}
-
-.hamburger-anim .hamburger-inner {
-    transition: transform 0.3s cubic-bezier(0.86, 0, 0.7, 1),
-        background-color 0s 0.25s cubic-bezier(0.86, 0, 0.7, 1);
-}
-
-.hamburger-anim .hamburger-inner::before,
-.hamburger-anim .hamburger-inner::after {
-    transition: transform 0s 0.25s cubic-bezier(0.86, 0, 0.7, 1);
-}
-
-.hamburger-anim.is-active .hamburger-inner {
-    background-color: transparent !important;
-    transform: rotateY(-180deg);
-}
-
-.hamburger-anim.is-active .hamburger-inner::before {
-    transform: translate3d(0, 10px, 0) rotate(45deg);
-}
-
-.hamburger-anim.is-active .hamburger-inner::after {
-    transform: translate3d(0, -10px, 0) rotate(-45deg);
+            &::after {
+                bottom: 0;
+                transform: rotate(-90deg);
+                transition: bottom 0.1s ease-out,
+                    transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+        }
+    }
 }

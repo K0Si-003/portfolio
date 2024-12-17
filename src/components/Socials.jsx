@@ -3,25 +3,29 @@ import linkedin from '../assets/images/linkedin.svg'
 
 export default function Socials() {
     return (
-        <div className="socials">
+        <>
             <a
                 href="https://www.linkedin.com/in/hugo-pioda/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className='socials__link'
+                className="socials__link"
                 // onClick={closeMenu}
             >
-                <img src={linkedin} alt="Linkedin Logo" className='socials__icon' />
+                <img
+                    src={linkedin}
+                    alt="Linkedin Logo"
+                    className="socials__icon"
+                />
             </a>
             <a
                 href="https://github.com/K0Si-003"
                 target="_blank"
                 rel="noopener noreferrer"
-                className='socials__link'
+                className="socials__link"
                 // onClick={closeMenu}
             >
-                <img src={github} alt="Github Logo" className='socials__icon' />
+                <img src={github} alt="Github Logo" className="socials__icon" />
             </a>
-        </div>
+        </>
     )
 }

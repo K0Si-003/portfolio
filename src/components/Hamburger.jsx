@@ -1,7 +1,7 @@
 export default function Hamburger({ onToggle, isMenuOpen }) {
     return (
         <button
-            className={`hamburger hamburger-anim ${isMenuOpen ? 'is-active' : ''}`}
+            className={`hamburger hamburger--spin ${isMenuOpen ? 'is-active' : ''}`}
             type="button"
             onClick={onToggle}
         >
