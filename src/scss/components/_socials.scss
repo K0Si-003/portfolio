@@ -3,10 +3,17 @@
 .header__socials,
 .menu__socials {
     display: flex;
+    z-index: 200;
 }
 
 .header__socials {
     @include respond-to("medium") {
+        display: none;
+    }
+}
+
+.menu__socials {
+    @include respond-to("medium-up") {
         display: none;
     }
 }
