@@ -18,9 +18,9 @@ $large: map.get($breakpoints, lg) !default;
 // Colors
 // ----------------
 
-$text-light: hsl(222.86, 10.45%, 86.86%);
-$background: hsl(0, 0%, 13.73%);
-$background-accent: hsl(216, 3.36%, 29.22%);
+$light: hsl(222.86, 10.45%, 86.86%);
+$dark-blue: hsl(0, 0%, 13.73%);
+$dark-blue-accent: hsl(216, 3.36%, 29.22%);
 
 // ----------------
 // Hamburger
@@ -31,3 +31,12 @@ $hamburger-height: 3px !default;
 $hamburger-spacing: 7px !default;
 $hamburger-border-radius: 4px !default;
 
+// ----------------
+// Fonts
+// ----------------
+
+$font-primary: 'Open Sans', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+$font-code: 'JetBrains Mono', monospace;
+$font-fallback: BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
