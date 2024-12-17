@@ -1,6 +1,4 @@
-// ----------------
-// Sass config and variables
-// ----------------
+@use 'sass:map';
 
 // ----------------
 // Breakpoints
@@ -12,9 +10,9 @@ $breakpoints: (
   lg: 1400px,
 ) !default;
 
-$small: map-get($breakpoints, sm) !default;
-$medium: map-get($breakpoints, md) !default;
-$large: map-get($breakpoints, lg) !default;
+$small: map.get($breakpoints, sm) !default;
+$medium: map.get($breakpoints, md) !default;
+$large: map.get($breakpoints, lg) !default;
 
 // ----------------
 // Colors
