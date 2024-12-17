@@ -11,7 +11,9 @@ export default function Header() {
 
     return (
         <header className="header">
-            <Socials />
+            <div className="header__socials">
+                <Socials />
+            </div>
             <Hamburger onToggle={toggleMenu} isMenuOpen={isMenuOpen} />
             <nav
                 className={`menu ${isMenuOpen ? 'is-active' : ''}`}
