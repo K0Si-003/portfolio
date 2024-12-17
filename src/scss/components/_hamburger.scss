@@ -6,13 +6,15 @@
     cursor: pointer;
     z-index: 200;
 
-    &:hover {
-        filter: brightness(0.7);
-    }
-
-    &.is-active {
+    @include respond-to("medium-up") {
         &:hover {
             filter: brightness(0.7);
+        }
+    
+        &.is-active {
+            &:hover {
+                filter: brightness(0.7);
+            }
         }
     }
 }
