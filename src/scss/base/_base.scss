@@ -1,5 +1,9 @@
 @use '../abstracts' as *;
 
 body {
-    color: $text-light;
+    font-family: 'Open Sans', $font-fallback, sans-serif;
+
+    @include respond-to("medium") {
+        font-family: $font-fallback, sans-serif;
+    }
 }

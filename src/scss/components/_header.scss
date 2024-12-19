@@ -44,10 +44,11 @@
 
 .menu__wrapper a {
     display: inline-block;
-    color: $text-light;
+    color: $light;
     font-size: 4rem;
     line-height: 2;
     letter-spacing: 0.1em;
+    text-decoration: none;
     text-shadow: 0 10px 30px rgba(2, 11, 22, 0.2);
     transform: translate3d(0, 100%, 0);
     transition: 0.7s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
