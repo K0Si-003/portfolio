@@ -2,9 +2,22 @@
 
 .header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 1.8rem;
+}
+
+.header__logo {
+    height: 3rem;
+
+    @include respond-to('small') {
+        height: 2.5rem;
+    }
+}
+
+.right__wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .menu {

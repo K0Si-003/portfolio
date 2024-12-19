@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Particles from '../components/Particles.jsx'
 import ReactFullpage from '@fullpage/react-fullpage'
+import { NavLink } from 'react-router'
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -10,13 +11,14 @@ export default function Home() {
         setIsLoaded(true)
     }, 300)
 
-    const [activeScrollBtn, setActiveScrollBtn] = useState(true)
+    const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
     const anchors = ['home', 'projects', 'about', 'contact']
+
     const onLeave = (origin, destination, direction) => {
         if (origin.index === 0) {
-            setActiveScrollBtn(false)
+            setIsScrollBtnActive(false)
         } else if (destination.index === 0) {
-            setActiveScrollBtn(true)
+            setIsScrollBtnActive(true)
         }
     }
 
@@ -34,10 +36,7 @@ export default function Home() {
                         <ReactFullpage.Wrapper>
                             <section className="section">
                                 <div className="container">
-                                    <div
-                                        className="text text-top"
-                                        id="section1"
-                                    >
+                                    <div className="text">
                                         <h1 className="title">
                                             Hugo <br />
                                             Pioda
@@ -55,7 +54,7 @@ export default function Home() {
 
                             <section className="section">
                                 <div className="container">
-                                    <div className="text" id="section1">
+                                    <div className="text">
                                         <h2 className="title">
                                             Latests <br />
                                             Projects
@@ -66,6 +65,11 @@ export default function Home() {
                                         </div>
                                         <p className="subtitle">
                                             Check up my projects
+                                        </p>
+                                        <p className="link">
+                                            <NavLink to="/projects">
+                                                Learn more
+                                            </NavLink>
                                         </p>
                                     </div>
                                     <div className="image image-project">
@@ -118,7 +122,7 @@ export default function Home() {
             />
             <p
                 className={`scrolldown ${
-                    activeScrollBtn ? 'active' : 'inactive'
+                    isScrollBtnActive ? 'active' : 'inactive'
                 }`}
             >
                 SCROLLDOWN
