@@ -18,10 +18,12 @@ $large: map.get($breakpoints, lg) !default;
 // Colors
 // ----------------
 
+$white: hsl(0, 0%, 100%);
 $light: hsl(222.86, 10.45%, 86.86%);
 $dark-blue: hsl(213, 83.33%, 4.71%);
 $dark-blue-accent: hsl(214, 81%, 16%);
 $orange: hsl(12.88, 87.21%, 57.06%);
+$orange-accent: hsl(13.42, 49.35%, 30.2%);
 
 // ----------------
 // Hamburger
