@@ -38,8 +38,8 @@ export default function Home() {
                                 <div className="container">
                                     <div className="text">
                                         <h1 className="title">
-                                            Hugo <br />
-                                            Pioda
+                                            Welcome <br />
+                                            to my portfolio
                                         </h1>
                                         <div className="separator">
                                             <span />
