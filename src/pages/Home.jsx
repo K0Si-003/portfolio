@@ -12,7 +12,7 @@ export default function Home() {
     }, 300)
 
     const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
-    const anchors = ['home', 'projects', 'about', 'contact']
+    const anchors = ['index', 'projects', 'about', 'contact']
 
     const onLeave = (origin, destination, direction) => {
         if (origin.index === 0) {
@@ -35,7 +35,7 @@ export default function Home() {
                     return (
                         <ReactFullpage.Wrapper>
                             <section className="section">
-                                <div className="container">
+                                <div className="wrapper">
                                     <div className="text">
                                         <h1 className="title">
                                             Welcome <br />
@@ -53,7 +53,7 @@ export default function Home() {
                             </section>
 
                             <section className="section">
-                                <div className="container">
+                                <div className="wrapper">
                                     <div className="text">
                                         <h2 className="title">
                                             Latests <br />
@@ -82,7 +82,7 @@ export default function Home() {
                             </section>
 
                             <section className="section">
-                                <div className="container">
+                                <div className="wrapper">
                                     <div className="text">
                                         <h2 className="title">About Me</h2>
                                         <div className="separator">
@@ -97,7 +97,7 @@ export default function Home() {
                             </section>
 
                             <section className="section">
-                                <div className="container">
+                                <div className="wrapper">
                                     <div className="text">
                                         <h2 className="title">Contact me</h2>
                                         <div className="separator">
