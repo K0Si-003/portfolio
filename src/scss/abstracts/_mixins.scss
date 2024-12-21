@@ -19,9 +19,6 @@ $bp-aliases: (
     'large': (
         max-width: #{$large - 1},
     ),
-    'extra-large': (
-        max-width: #{$extra-large - 1},
-    ),
     'small-up': (
         min-width: #{$small},
     ),
@@ -31,9 +28,6 @@ $bp-aliases: (
     'large-up': (
         min-width: #{$large},
     ),
-    'extra-large-up': (
-        min-width: #{$extra-large},
-    )
 );
 
 // Source : https://www.sitepoint.com/managing-responsive-breakpoints-sass/
@@ -51,3 +45,22 @@ $bp-aliases: (
         @warn "Unfortunately, no value could be retrieved from `#{$name}`. " (+"Please make sure it is defined in `$bp-aliases` map.");
     }
 }
+
+// ----------------
+// Container
+// ----------------
+
+// Mixin for responsive container
+@mixin min($bp, $max: 'null', $device: 'screen') {
+    @if $max == 'null' {
+        @media only #{$device} and (min-width: #{$bp}) {
+            @content;
+        }
+    } @else {
+        @media only #{$device} and (min-width: #{$bp}) and (max-width: #{$max}) {
+            @content;
+        }
+    }
+}
+
+

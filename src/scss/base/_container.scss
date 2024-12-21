@@ -1,26 +1,43 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+@function bp($bp) {
+    @return map-get($breakpoints, $bp);
+}
+
+@function container($container-size) {
+    @return map-get($container-sizes, $container-size);
+}
+
 %container {
     position: relative;
-    width: 100%;
     margin: 0 auto;
-    padding: 1rem 2rem;
-}
-
-.container-tiny {
-    max-width: 70rem;
-    @extend %container;
-}
-
-.container-small {
-    max-width: 99.2rem;
-    @extend %container;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .container {
-    max-width: 125rem;
     @extend %container;
+
+    @each $bp, $container-size in $container-sizes {
+        @include min(#{bp(#{$bp})}) {
+            width: 100%;
+            max-width: container(#{$bp});
+        }
+    }
 }
 
-.container-large {
-    max-width: 144rem;
-    @extend %container;
+@each $bp, $container-size in $container-sizes {
+    .container-#{$bp} {
+        @extend %container;
+        width: 100%;
+
+        $i: index($container-sizes, $bp $container-size);
+
+        @for $j from $i through length($container-sizes) {
+            @include min(#{bp(nth(nth($container-sizes, $j), 1))}) {
+                max-width: container(#{nth(nth($container-sizes, $j), 1)});
+            }
+        }
+    }
 }
