@@ -8,11 +8,13 @@ $breakpoints: (
     sm: 576px,
     md: 992px,
     lg: 1400px,
+    xl: 1800px,
 ) !default;
 
 $small: map.get($breakpoints, sm) !default;
 $medium: map.get($breakpoints, md) !default;
 $large: map.get($breakpoints, lg) !default;
+$extra-large: map.get($breakpoints, xl) !default;
 
 // ----------------
 // Colors
