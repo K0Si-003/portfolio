@@ -9,8 +9,13 @@
     @return map-get($container-sizes, $container-size);
 }
 
+@function max-width($max-width) {
+    @return map-get($max-widths, $max-width);
+}
+
 %container {
     position: relative;
+    width: 100%;
     margin: 0 auto;
     padding-right: 1rem;
     padding-left: 1rem;
@@ -20,24 +25,29 @@
     @extend %container;
 
     @each $bp, $container-size in $container-sizes {
-        @include min(#{bp(#{$bp})}) {
-            width: 100%;
-            max-width: container(#{$bp});
+        @include responsive-container(#{bp($bp)}) {
+            max-width: container($bp);
         }
     }
 }
 
-@each $bp, $container-size in $container-sizes {
+@each $bp, $max-width in $max-widths {
     .container-#{$bp} {
         @extend %container;
-        width: 100%;
 
-        $i: index($container-sizes, $bp $container-size);
-
-        @for $j from $i through length($container-sizes) {
-            @include min(#{bp(nth(nth($container-sizes, $j), 1))}) {
-                max-width: container(#{nth(nth($container-sizes, $j), 1)});
+        @if $bp == 'md' {
+            @include responsive-container(#{bp('sm')}) {
+                max-width: $max-width;
+            }
+        } @else {
+            @include responsive-container(#{bp($bp)}) {
+                max-width: $max-width;
             }
         }
     }
+}
+
+.container-full {
+    @extend %container;
+    max-width: 100%;
 }

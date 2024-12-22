@@ -39,9 +39,15 @@ $large: map.get($breakpoints, lg) !default;
 // ----------------
 
 $container-sizes: (
-    sm: map-get($breakpoints, sm) - 30px,
-    md: map-get($breakpoints, md) - 150px,
-    lg: map-get($breakpoints, lg) - 300px
+    sm: $small - 30px,
+    md: $medium - 150px,
+    lg: $large - 300px
+);
+
+$max-widths: (
+    sm: ($small / 5) * 3,
+    md: ($medium / 5) * 3,
+    lg: $large
 );
 
 // ----------------

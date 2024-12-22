@@ -3,7 +3,7 @@
 @use '../abstracts/variables' as *;
 
 // ----------------
-// Breakpoints
+// Media queries
 // ----------------
 
 // Respond-to mixin
@@ -51,16 +51,9 @@ $bp-aliases: (
 // ----------------
 
 // Mixin for responsive container
-@mixin min($bp, $max: 'null', $device: 'screen') {
-    @if $max == 'null' {
-        @media only #{$device} and (min-width: #{$bp}) {
-            @content;
-        }
-    } @else {
-        @media only #{$device} and (min-width: #{$bp}) and (max-width: #{$max}) {
-            @content;
-        }
+
+@mixin responsive-container($bp, $device: 'screen') {
+    @media only #{$device} and (min-width: #{$bp}) {
+        @content;
     }
 }
-
-
