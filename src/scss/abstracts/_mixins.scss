@@ -3,7 +3,7 @@
 @use '../abstracts/variables' as *;
 
 // ----------------
-// Breakpoints
+// Media queries
 // ----------------
 
 // Respond-to mixin
@@ -19,9 +19,6 @@ $bp-aliases: (
     'large': (
         max-width: #{$large - 1},
     ),
-    'extra-large': (
-        max-width: #{$extra-large - 1},
-    ),
     'small-up': (
         min-width: #{$small},
     ),
@@ -31,9 +28,6 @@ $bp-aliases: (
     'large-up': (
         min-width: #{$large},
     ),
-    'extra-large-up': (
-        min-width: #{$extra-large},
-    )
 );
 
 // Source : https://www.sitepoint.com/managing-responsive-breakpoints-sass/
@@ -49,5 +43,17 @@ $bp-aliases: (
     // If the key doesn't exist in the map
     @else {
         @warn "Unfortunately, no value could be retrieved from `#{$name}`. " (+"Please make sure it is defined in `$bp-aliases` map.");
+    }
+}
+
+// ----------------
+// Container
+// ----------------
+
+// Mixin for responsive container
+
+@mixin responsive-container($bp, $device: 'screen') {
+    @media only #{$device} and (min-width: #{$bp}) {
+        @content;
     }
 }
