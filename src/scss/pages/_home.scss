@@ -23,7 +23,7 @@
 // General
 // ----------------
 
-.container {
+.wrapper {
     position: relative;
     width: 90%;
     height: calc(100vh - 85px);
@@ -76,7 +76,7 @@
 }
 
 .title {
-    font-size: 6.5rem;
+    font-size: 5rem;
     font-family: 'Poppins', sans-serif;
     line-height: 1.1;
     letter-spacing: 0.5rem;

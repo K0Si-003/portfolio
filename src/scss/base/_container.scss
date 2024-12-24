@@ -1,0 +1,26 @@
+%container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.container-tiny {
+    max-width: 70rem;
+    @extend %container;
+}
+
+.container-small {
+    max-width: 99.2rem;
+    @extend %container;
+}
+
+.container {
+    max-width: 125rem;
+    @extend %container;
+}
+
+.container-large {
+    max-width: 144rem;
+    @extend %container;
+}
