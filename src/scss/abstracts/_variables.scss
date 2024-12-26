@@ -45,8 +45,8 @@ $container-sizes: (
 );
 
 $max-widths: (
-    sm: ($small / 5) * 3,
-    md: ($medium / 5) * 3,
+    sm: calc($small / 5) * 3,
+    md: calc($medium / 5) * 3,
     lg: $large
 );
 
