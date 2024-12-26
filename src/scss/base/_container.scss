@@ -1,16 +1,17 @@
+@use 'sass:map';
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
 @function bp($bp) {
-    @return map-get($breakpoints, $bp);
+    @return map.get($breakpoints, $bp);
 }
 
 @function container($container-size) {
-    @return map-get($container-sizes, $container-size);
+    @return map.get($container-sizes, $container-size);
 }
 
 @function max-width($max-width) {
-    @return map-get($max-widths, $max-width);
+    @return map.get($max-widths, $max-width);
 }
 
 %container {
