@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
-const SAVED_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/me/tracks?offset=0&limit=10&locale=fr-FR'
+const SAVED_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/me/tracks?offset=0&limit=12&locale=fr-FR'
 
 const getAccessToken = async(client_id, client_secret, refresh_token) => {
     if (!client_id || !client_secret || !refresh_token) {
