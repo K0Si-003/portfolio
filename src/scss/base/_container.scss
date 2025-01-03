@@ -18,12 +18,12 @@
     position: relative;
     width: 100%;
     margin: 0 auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .container {
     @extend %container;
-    padding-right: 1rem;
-    padding-left: 1rem;
 
     @each $bp, $container-size in $container-sizes {
         @include responsive-container(#{bp($bp)}) {
