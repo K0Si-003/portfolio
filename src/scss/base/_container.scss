@@ -6,14 +6,6 @@
     @return map.get($breakpoints, $bp);
 }
 
-@function container($container-size) {
-    @return map.get($container-sizes, $container-size);
-}
-
-@function max-width($max-width) {
-    @return map.get($max-widths, $max-width);
-}
-
 %container {
     position: relative;
     width: 100%;
@@ -25,26 +17,17 @@
 .container {
     @extend %container;
 
-    @each $bp, $container-size in $container-sizes {
-        @include responsive-container(#{bp($bp)}) {
-            max-width: container($bp);
+    @each $key, $value in $max-width {
+        @include responsive-container(#{bp($key)}) {
+            max-width: $value;
         }
     }
 }
 
-@each $bp, $max-width in $max-widths {
-    .container-#{$bp} {
+@each $key, $value in $container-sizes {
+    .container-#{$key} {
         @extend %container;
-
-        @if $bp == 'md' {
-            @include responsive-container(#{bp('sm')}) {
-                max-width: $max-width;
-            }
-        } @else {
-            @include responsive-container(#{bp($bp)}) {
-                max-width: $max-width;
-            }
-        }
+        max-width: $value;
     }
 }
 

@@ -38,15 +38,17 @@ $large: map.get($breakpoints, lg) !default;
 // Containers sizes
 // ----------------
 
-$container-sizes: (
-    sm: $small - 30px,
-    md: $medium - 150px,
-    lg: $large - 300px
+// Main .container max-width
+$max-width: (
+    sm: 95%,
+    md: 80%,
+    lg: 65%
 );
 
-$max-widths: (
-    sm: calc($small / 5) * 3,
-    md: calc($medium / 5) * 3,
+// Additional .container-sm -md -lg sizes
+$container-sizes: (
+    sm: $small - 60px,
+    md: $medium - 250px,
     lg: $large
 );
 
