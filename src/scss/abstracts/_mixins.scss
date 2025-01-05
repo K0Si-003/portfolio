@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'sass:meta';
+@use "sass:color";
 @use '../abstracts/variables' as *;
 
 // ----------------
@@ -50,10 +51,10 @@ $bp-aliases: (
 // Add aplha to hsl color
 // ----------------
 
-@mixin hsl-alpha($color, $alpha) {
-    $h: hue($color);
-    $s: saturation($color);
-    $l: lightness($color);
+@mixin hsl-alpha($color, $alpha, $space: hsl) {
+    $h: color.channel($color, "hue", $space);
+    $s: color.channel($color, "saturation", $space);
+    $l: color.channel($color, "lightness", $space);
     $a: $alpha;
     color: hsla($h, $s, $l, $a);
 }
