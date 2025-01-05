@@ -52,7 +52,6 @@
     position: absolute;
     top: 50%;
     margin-left: 11%;
-    color: $light;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     overflow: hidden;
@@ -340,7 +339,6 @@
     line-height: 1;
     letter-spacing: 0.2em;
     writing-mode: vertical-rl;
-    color: $light;
     z-index: 100;
 
     @include respond-to('small') {
@@ -354,7 +352,7 @@
         content: '';
         width: 2px;
         height: 64px;
-        background: $light;
+        background: $white;
         position: absolute;
         left: 0;
         right: 0;
@@ -393,25 +391,4 @@
     to {
         transform: translate3d(0, 180%, 0);
     }
-}
-
-// ----------------
-// Background
-// ----------------
-
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1000;
-    background-image: linear-gradient(
-        190deg,
-        #16313b 0%,
-        #132c35 10%,
-        #0e1f25 30%,
-        #06131d 60%,
-        #03090e 100%
-    );
 }

@@ -22,7 +22,7 @@ export default function About() {
                 <h1 className="about__title">About</h1>
                 <p className="about__text">
                     <span>
-                        Hello, moi c'est Hugo, développeur front-end basé à Lyon, France. Bienvenue
+                        Bonjour, moi c'est Hugo, développeur front-end basé à Lyon. Bienvenue
                         sur mon petit bout d'internet. Ici vous pourrez trouver mon travail, mes
                         derniers projets ou mes dernières expérimentations.
                     </span>
@@ -49,23 +49,19 @@ export default function About() {
                     Eligendi ullam suscipit corporis, corrupti aspernatur impedit nostrum delectus
                     quod, voluptate facilis quae obcaecati laudantium enim fuga. Illo quidem quas
                     officia architecto, expedita inventore natus alias perferendis consequuntur
-                    corrupti. Excepturi minus optio vitae est iste rerum doloremque facere! Eligendi
-                    sapiente deserunt rerum doloribus odit asperiores error repellendus voluptatem a
-                    nihil, porro exercitationem dolor recusandae at ut eos hic laborum quo vel harum
-                    ex quod vero. Nulla laudantium excepturi fugit aut. Vero harum quam possimus
-                    dignissimos. Tenetur praesentium asperiores aperiam animi cumque. Consequatur,
-                    animi mollitia. Quidem soluta consequuntur mollitia odio.
+                    corrupti.
                 </p>
             </section>
-            <section className="about__spotify container">
+            <section className="about__spotify container-md">
                 <h2 className='about__title'>Spotify</h2>
+                <p>Un petit coin pour découvrir les dernières pépites dans mes oreilles</p>
                 {fetchingData ? (
                     <p>Loading...</p>
                 ) : (
                     <ul className="spotify__grid">
                         {savedTracks.items.map((track) => (
                             <li key={track.track.id} className="grid__item">
-                                <p className="item__text">
+                                <p className='item__text'>
                                     <span>{track.track.artists[0].name}</span>
                                     <span>{track.track.name}</span>
                                     <span>{track.track.album.release_date.slice(0, 4)}</span>

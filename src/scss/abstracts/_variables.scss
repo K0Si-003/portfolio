@@ -1,11 +1,11 @@
 @use 'sass:map';
+@use 'sass:list';
 
 // ----------------
 // Colors
 // ----------------
 
 $white: hsl(0, 0%, 100%);
-$light: hsl(222.86, 10.45%, 86.86%);
 $dark-blue: hsl(213, 83.33%, 4.71%);
 $dark-blue-accent: hsl(214, 81%, 16%);
 $orange: hsl(12.88, 87.21%, 57.06%);
@@ -15,10 +15,11 @@ $orange-accent: hsl(13.42, 49.35%, 30.2%);
 // Fonts
 // ----------------
 
-$font-primary: 'Open Sans', sans-serif;
+$font-primary: 'Inter', sans-serif;
 $font-secondary: 'Poppins', sans-serif;
-$font-code: 'JetBrains Mono', monospace;
-$font-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
+$font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, 'Helvetica Neue', sans-serif;
 
 // ----------------
 // Breakpoints
@@ -42,14 +43,14 @@ $large: map.get($breakpoints, lg) !default;
 $max-width: (
     sm: 95%,
     md: 80%,
-    lg: 65%
+    lg: 65%,
 );
 
 // Additional .container-sm -md -lg sizes
 $container-sizes: (
     sm: $small - 60px,
     md: $medium - 250px,
-    lg: $large
+    lg: $large,
 );
 
 // ----------------
