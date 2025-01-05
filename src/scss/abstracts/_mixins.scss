@@ -47,6 +47,18 @@ $bp-aliases: (
 }
 
 // ----------------
+// Add aplha to hsl color
+// ----------------
+
+@mixin hsl-alpha($color, $alpha) {
+    $h: hue($color);
+    $s: saturation($color);
+    $l: lightness($color);
+    $a: $alpha;
+    color: hsla($h, $s, $l, $a);
+}
+
+// ----------------
 // Container
 // ----------------
 
