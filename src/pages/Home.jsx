@@ -38,15 +38,15 @@ export default function Home() {
                                 <div className="wrapper">
                                     <div className="text">
                                         <h1 className="title">
-                                            Welcome <br />
-                                            to my portfolio
+                                            Portfolio <br />
+                                            Web Developer
                                         </h1>
                                         <div className="separator">
                                             <span />
                                             <span />
                                         </div>
                                         <p className="subtitle">
-                                            Web Developer
+                                            Bienvenue sur mon site
                                         </p>
                                     </div>
                                 </div>
@@ -56,19 +56,18 @@ export default function Home() {
                                 <div className="wrapper">
                                     <div className="text">
                                         <h2 className="title">
-                                            Latests <br />
-                                            Projects
+                                            Projets
                                         </h2>
                                         <div className="separator">
                                             <span />
                                             <span />
                                         </div>
                                         <p className="subtitle">
-                                            Check up my projects
+                                            Venez découvrir mes derniers projets et expérimentations
                                         </p>
                                         <p className="link">
                                             <NavLink to="/projects">
-                                                Learn more
+                                                Voir plus
                                             </NavLink>
                                         </p>
                                     </div>
@@ -84,13 +83,18 @@ export default function Home() {
                             <section className="section">
                                 <div className="wrapper">
                                     <div className="text">
-                                        <h2 className="title">About Me</h2>
+                                        <h2 className="title">A propos</h2>
                                         <div className="separator">
                                             <span />
                                             <span />
                                         </div>
                                         <p className="subtitle">
-                                            More info about me
+                                            Je vous partage ici un peu plus sur mes compétences et inspirations.
+                                        </p>
+                                        <p className="link">
+                                            <NavLink to="/about">
+                                                Voir plus
+                                            </NavLink>
                                         </p>
                                     </div>
                                 </div>
@@ -99,13 +103,18 @@ export default function Home() {
                             <section className="section">
                                 <div className="wrapper">
                                     <div className="text">
-                                        <h2 className="title">Contact me</h2>
+                                        <h2 className="title">Contact</h2>
                                         <div className="separator">
                                             <span />
                                             <span />
                                         </div>
                                         <p className="subtitle">
                                             Web Developer
+                                        </p>
+                                        <p className="link">
+                                            <NavLink to="/contact">
+                                                Voir plus
+                                            </NavLink>
                                         </p>
                                     </div>
                                     <div className="image image-contact">
