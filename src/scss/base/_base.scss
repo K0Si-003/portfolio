@@ -5,6 +5,11 @@ body {
     font-family: $font-primary, $font-fallback;
 }
 
+a {
+    color: $white;
+    text-decoration: none;
+}
+
 // ----------------
 // Background
 // ----------------

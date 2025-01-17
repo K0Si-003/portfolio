@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Particles from '../components/Particles.jsx'
 import ReactFullpage from '@fullpage/react-fullpage'
 import { NavLink } from 'react-router'
+import Button from '../components/Button.jsx'
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -38,16 +39,14 @@ export default function Home() {
                                 <div className="wrapper">
                                     <div className="text">
                                         <h1 className="title">
-                                            Portfolio <br />
-                                            Web Developer
+                                            <span className="title__line">Portfolio</span>
+                                            <span className="title__line">Web Developer</span>
                                         </h1>
                                         <div className="separator">
                                             <span />
                                             <span />
                                         </div>
-                                        <p className="subtitle">
-                                            Bienvenue sur mon site
-                                        </p>
+                                        <p className="subtitle">Bienvenue sur mon site</p>
                                     </div>
                                 </div>
                             </section>
@@ -55,9 +54,7 @@ export default function Home() {
                             <section className="section">
                                 <div className="wrapper">
                                     <div className="text">
-                                        <h2 className="title">
-                                            Projets
-                                        </h2>
+                                        <h2 className="title">Projets</h2>
                                         <div className="separator">
                                             <span />
                                             <span />
@@ -65,11 +62,7 @@ export default function Home() {
                                         <p className="subtitle">
                                             Venez découvrir mes derniers projets et expérimentations
                                         </p>
-                                        <p className="link">
-                                            <NavLink to="/projects">
-                                                Voir plus
-                                            </NavLink>
-                                        </p>
+                                        <Button route={'/projects'} className={'btn-home'} />
                                     </div>
                                     <div className="image image-project">
                                         <div className="image-over">
@@ -83,19 +76,16 @@ export default function Home() {
                             <section className="section">
                                 <div className="wrapper">
                                     <div className="text">
-                                        <h2 className="title">A propos</h2>
+                                        <h2 className="title">À propos</h2>
                                         <div className="separator">
                                             <span />
                                             <span />
                                         </div>
                                         <p className="subtitle">
-                                            Je vous partage ici un peu plus sur mes compétences et inspirations.
+                                            Je vous partage ici un peu plus sur mes compétences et
+                                            inspirations.
                                         </p>
-                                        <p className="link">
-                                            <NavLink to="/about">
-                                                Voir plus
-                                            </NavLink>
-                                        </p>
+                                        <Button route={'/about'} className={'btn-home'} />
                                     </div>
                                 </div>
                             </section>
@@ -109,13 +99,9 @@ export default function Home() {
                                             <span />
                                         </div>
                                         <p className="subtitle">
-                                            Web Developer
+                                            Pour toutes demandes, ça se passe ici.
                                         </p>
-                                        <p className="link">
-                                            <NavLink to="/contact">
-                                                Voir plus
-                                            </NavLink>
-                                        </p>
+                                        <Button route={'/contact'} className={'btn-home'} />
                                     </div>
                                     <div className="image image-contact">
                                         <div className="image-over">
@@ -129,13 +115,7 @@ export default function Home() {
                     )
                 }}
             />
-            <p
-                className={`scrolldown ${
-                    isScrollBtnActive ? 'active' : 'inactive'
-                }`}
-            >
-                SCROLLDOWN
-            </p>
+            <p className={`scrolldown ${isScrollBtnActive ? 'active' : 'inactive'}`}>SCROLLDOWN</p>
             <div className="background">
                 <Particles />
             </div>
