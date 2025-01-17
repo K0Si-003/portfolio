@@ -75,7 +75,7 @@ export default function Particles() {
                     const repulsionDirectionY = (p.y - mouseY) / distanceToMouse
                     p.directionX += repulsionDirectionX * repulsionForce
                     p.directionY += repulsionDirectionY * repulsionForce
-                    const speedLimit = 1
+                    const speedLimit = 0.3
 
                     if (Math.hypot(p.directionX, p.directionY) > speedLimit) {
                         p.directionX = (p.directionX / Math.hypot(p.directionX, p.directionY)) * speedLimit
