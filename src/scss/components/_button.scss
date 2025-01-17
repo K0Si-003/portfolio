@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+[class*='btn'] {
+    position: relative;
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    margin: 2rem 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+}
+
+.btn-primary {
+    position: relative;
+    width: 8rem;
+    height: 2.5rem;
+    border-radius: 0.2rem;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+    display: inline-block;
+    outline: none;
+    background: $orange-accent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+
+    &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        background-color: $orange;
+        border-radius: 0.2rem;
+        transition: all 0.3s ease;
+    }
+
+    &:hover:after {
+        left: 0;
+        width: 100%;
+    }
+}

@@ -93,6 +93,19 @@
     }
 }
 
+.title__line {
+    display: block;
+
+    &:nth-child(2) {
+        font-size: 3.5rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px black;
+}
+
 .text .separator {
     display: inline-block;
     margin: 2rem 1rem;
@@ -198,19 +211,23 @@
 
 .section.active {
     .title {
-        animation: enter-text 1.8s cubic-bezier(0.86, 0, 0.07, 1);
+        animation: enter-left-content 1.8s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     .separator span:first-child {
-        animation: enter-text 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+        animation: enter-left-content 1.2s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     span:last-child {
-        animation: enter-text 1.5s cubic-bezier(0.86, 0, 0.07, 1);
+        animation: enter-left-content 1.5s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     .subtitle {
-        animation: enter-text 1.5s cubic-bezier(0.86, 0, 0.07, 1);
+        animation: enter-left-content 1.5s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    .btn-home {
+        animation: enter-left-content 1.3s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     .image {
@@ -224,9 +241,11 @@
     .image-cover:last-child {
         animation: enter-image 1.3s cubic-bezier(0.86, 0, 0.07, 1);
     }
+
+
 }
 
-@keyframes enter-text {
+@keyframes enter-left-content {
     0% {
         transform: translate3d(-250%, 0, 0);
     }
