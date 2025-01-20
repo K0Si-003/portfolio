@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getSavedTracks } from '../services/SpotifyAPI.js'
+import tabsContent from '../data/tabsContent.jsx'
+import Tabs from '../components/Tabs.jsx'
 
 export default function About() {
     const [fetchingData, setFetchingStatus] = useState(true)
@@ -63,13 +65,19 @@ export default function About() {
                     </span>
                 </p>
             </section>
-            <section className="about__skills container-large">
-                <h2>Compétences</h2>
-                <p>
-                    <span className='about__text'>
-                        Retrouvez un aperçu des technologies que j'utilise et des compétences qui sont miennes.
-                    </span>
-                </p>
+            <section className="about__skills container-full">
+                <div className="skills__text container">
+                    <h2>Compétences</h2>
+                    <p>
+                        <span className="about__text">
+                            Retrouvez un aperçu des technologies que j'utilise et des compétences
+                            qui sont miennes.
+                        </span>
+                    </p>
+                </div>
+                <div className="skills__tabs container">
+                    <Tabs tabs={tabsContent} />
+                </div>
             </section>
             <section className="about__spotify container-md">
                 <h2 className="about__title">Spotify</h2>
