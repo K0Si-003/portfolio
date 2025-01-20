@@ -70,8 +70,7 @@ export default function About() {
                     <h2>Compétences</h2>
                     <p>
                         <span className="about__text">
-                            Retrouvez un aperçu des technologies que j'utilise et des compétences
-                            qui sont miennes.
+                            Voici un petit aperçu des outils et langages que j'utilise pour mes projets.
                         </span>
                     </p>
                 </div>
