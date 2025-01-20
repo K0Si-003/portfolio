@@ -4,14 +4,8 @@
     --active-tab-color: white;
 }
 
-// .skills__tabs {
-//     padding: 2rem;
-//     border: 2px solid $orange-accent;
-//     border-radius: 0.4rem;
-// }
-
 .tabs__wrapper {
-    padding: 4rem 0;
+    padding-top: 4rem;
 
     @include respond-to('small') {
         padding-top: 2rem;
@@ -71,4 +65,37 @@
 
 .tab__content {
     overflow: hidden;
+
+    svg {
+        margin: 0 0.4rem -0.4rem 0.4rem;
+    }
+}
+
+.techno__tab,
+.tools__tab {
+    ul {
+        counter-reset: item; // Initialise le compteur à 0
+    }
+
+    li {
+        position: relative;
+        margin: 1rem 0;
+        counter-increment: line;
+    }
+
+    li::before {
+        content: counter(line);
+        position: absolute;
+        top: 0.6rem;
+        left: 0;
+        width: 0.5rem;
+        height: 0.5rem;
+        color: var(--active-tab-color);
+        border-radius: 50%;
+    }
+
+    p {
+        margin-left: 1.2rem;
+        line-height: 1.6rem;
+    }
 }
