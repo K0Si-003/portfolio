@@ -1,13 +1,21 @@
 @use '../abstracts' as *;
 
 :root {
-    --active-color: white;
+    --active-tab-color: white;
 }
 
-.skills__tabs {
-    padding: 2rem;
-    border: 2px solid $orange-accent;
-    border-radius: 0.4rem;
+// .skills__tabs {
+//     padding: 2rem;
+//     border: 2px solid $orange-accent;
+//     border-radius: 0.4rem;
+// }
+
+.tabs__wrapper {
+    padding: 4rem 0;
+
+    @include respond-to('small') {
+        padding-top: 2rem;
+    }
 }
 
 .tabs__list {
@@ -19,8 +27,12 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin: 0 2rem;
+    margin: 0 4rem;
     cursor: pointer;
+
+    @include respond-to('small') {
+        margin-top: 0 2rem;
+    }
 }
 
 .underline {
@@ -29,7 +41,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--active-color);
+    background: var(--active-tab-color);
     border-radius: 1rem;
 }
 
@@ -46,23 +58,17 @@
 }
 
 .tab.active {
-    color: var(--active-color);
+    color: var(--active-tab-color);
 }
 
 .tab.active svg {
-    fill: var(--active-color);
+    fill: var(--active-tab-color);
 }
 
 .tabs__content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 20rem;
-    user-select: none;
     margin-top: 2rem;
-
 }
 
 .tab__content {
-    position: absolute;
+    overflow: hidden;
 }

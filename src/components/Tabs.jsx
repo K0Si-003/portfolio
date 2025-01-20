@@ -11,29 +11,12 @@ export default function Tabs({ tabs, defaultIndex = 0 }) {
     }
 
     useEffect(() => {
-        document.documentElement.style.setProperty('--active-color', tabs[activeTabIndex].color)
+        document.documentElement.style.setProperty('--active-tab-color', tabs[activeTabIndex].color)
     }, [activeTabIndex, tabs])
 
-    const tabContentVariant = {
-        active: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.3,
-            },
-        },
-        inactive: {
-            opacity: 0,
-            y: 15,
-            transition: {
-                duration: 0.3,
-            },
-        },
-    }
-
     return (
-        <>
-            <nav className="tabs__nav">
+        <div className="tabs__wrapper">
+            <nav className="tabs__header">
                 <ul className="tabs__list">
                     {tabs.map((tab, index) => (
                         <motion.li
@@ -54,15 +37,19 @@ export default function Tabs({ tabs, defaultIndex = 0 }) {
                 {tabs.map((tab, index) => (
                     <motion.div
                         key={tab.id}
-                        id={`${tab.id}-content`}
                         className={cn('tab__content', { active: activeTabIndex === index })}
-                        animate={activeTabIndex === index ? 'active' : 'inactive'}
-                        variants={tabContentVariant}
+                        initial={{ opacity: 0, maxheight: 0, y: -10 }}
+                        animate={
+                            activeTabIndex === index
+                                ? { opacity: 1, maxheight: 500, y: 0 }
+                                : { opacity: 0, maxheight: 0, y: 10 }
+                        }
+                        transition={{ duration: 0.4 }}
                     >
-                        {tab.content}
+                        {activeTabIndex === index && <>{tab.content}</>}
                     </motion.div>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
