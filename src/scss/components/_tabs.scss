@@ -1,0 +1,101 @@
+@use '../abstracts' as *;
+
+:root {
+    --active-tab-color: white;
+}
+
+.tabs__wrapper {
+    padding-top: 4rem;
+
+    @include respond-to('small') {
+        padding-top: 2rem;
+    }
+}
+
+.tabs__list {
+    display: flex;
+    justify-content: center;
+}
+
+.tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 4rem;
+    cursor: pointer;
+
+    @include respond-to('small') {
+        margin-top: 0 2rem;
+    }
+}
+
+.underline {
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--active-tab-color);
+    border-radius: 1rem;
+}
+
+.tab svg {
+    width: 2rem;
+    margin-right: 0.5rem;
+    fill: $white;
+}
+
+.tab:nth-child(2) {
+    svg {
+        width: 1.5rem;
+    }
+}
+
+.tab.active {
+    color: var(--active-tab-color);
+}
+
+.tab.active svg {
+    fill: var(--active-tab-color);
+}
+
+.tabs__content {
+    margin-top: 2rem;
+}
+
+.tab__content {
+    overflow: hidden;
+
+    svg {
+        margin: 0 0.4rem -0.4rem 0.4rem;
+    }
+}
+
+.techno__tab,
+.tools__tab {
+    ul {
+        counter-reset: item; // Initialise le compteur à 0
+    }
+
+    li {
+        position: relative;
+        margin: 1rem 0;
+        counter-increment: line;
+    }
+
+    li::before {
+        content: counter(line);
+        position: absolute;
+        top: 0.6rem;
+        left: 0;
+        width: 0.5rem;
+        height: 0.5rem;
+        color: var(--active-tab-color);
+        border-radius: 50%;
+    }
+
+    p {
+        margin-left: 1.2rem;
+        line-height: 1.6rem;
+    }
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getSavedTracks } from '../services/SpotifyAPI.js'
+import tabsContent from '../data/tabsContent.jsx'
+import Tabs from '../components/Tabs.jsx'
 
 export default function About() {
     const [fetchingData, setFetchingStatus] = useState(true)
@@ -22,38 +24,62 @@ export default function About() {
                 <h1 className="about__title">About</h1>
                 <p className="about__text">
                     <span>
-                        Bonjour, moi c'est Hugo, développeur front-end basé à Lyon. Bienvenue
-                        sur mon petit bout d'internet. Ici vous pourrez trouver mon travail, mes
-                        derniers projets ou mes dernières expérimentations.
+                        Salut, moi c'est Hugo, développeur front-end basé à Lyon. Je vous souhaites
+                        la bienvenue sur mon petit bout d'internet. Ici je vous partagerais mes
+                        projets réalisés, mes dernières expérimentations et de quoi en apprendre un
+                        peu plus sur moi et mon parcours.
                     </span>
                 </p>
                 <p className="about__text">
                     <span>
-                        Mes premiers pas dans le monde du web se font en 2016 via la découverte de
-                        Flash et ActionScript. Par la suite je découvrirais, le webdesign, et le
-                        développement web. Html, CSS puis React et ThreeJS.
+                        Me concernant, ma première rencontre avec le monde du web se fait il y a
+                        quelques années déjà, à une époque où Flash et ActionScript étaient encore
+                        d'actualité. Dans un premier temps je me suis intéresser pour le web design,
+                        les questions d'UX/UI, comment faire un site web facilement. Et déjà, avec
+                        comme objectif: comment animer une pages web.
                     </span>
                 </p>
                 <p className="about__text">
                     <span>
-                        Comme prochaine étape d'apprentisage je souhaiterais approfondir les
-                        frameworks orienté SSR. 100% Typescript en ligne de mire et toujours des
-                        expérimentations dans le domaine de la 3d orienté web.
+                        C'est par la suite, avec une formation à la Wild Code School, que je plonge
+                        dans le grand bain du développement web, avec l'apprentisage de tous les
+                        outils du développement web moderne. J'y ai acquis des bases techniques
+                        (lien section skills) et méthodologiques.
+                    </span>
+                </p>
+                <p className="about__text">
+                    <span>
+                        C'est ensuite par mes expériences professionelles, en start-up et en agence
+                        que j'ai pu progresser sur le terrain. J'ai pu y apprendre l'utilisation de
+                        nouveau outils, les bonnes pratiques pour le réferencement. Je me suis aussi
+                        formé de mon côté sur de la 3D orienté web. L'utilisation de Three.js, React
+                        Three Fiber et Blender.
+                    </span>
+                </p>
+                <p className="about__text">
+                    <span>
+                        Comme prochaine étape de mon parcours, je souhaiterais approfondir les
+                        frameworks orienté SSR, passé a typescript et continuer de monter en
+                        compétences sur le web 3D avec les nouvelles technologies comme les shaders
+                        via TSL.
                     </span>
                 </p>
             </section>
-            <section className="about__skills container">
-                <h2>Skills</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, ex corporis!
-                    Eligendi ullam suscipit corporis, corrupti aspernatur impedit nostrum delectus
-                    quod, voluptate facilis quae obcaecati laudantium enim fuga. Illo quidem quas
-                    officia architecto, expedita inventore natus alias perferendis consequuntur
-                    corrupti.
-                </p>
+            <section className="about__skills container-full">
+                <div className="skills__text container">
+                    <h2>Compétences</h2>
+                    <p>
+                        <span className="about__text">
+                            Voici un petit aperçu des outils et langages que j'utilise pour mes projets.
+                        </span>
+                    </p>
+                </div>
+                <div className="skills__tabs container">
+                    <Tabs tabs={tabsContent} />
+                </div>
             </section>
             <section className="about__spotify container-md">
-                <h2 className='about__title'>Spotify</h2>
+                <h2 className="about__title">Spotify</h2>
                 <p>Un petit coin pour découvrir les dernières pépites dans mes oreilles</p>
                 {fetchingData ? (
                     <p>Loading...</p>
@@ -61,7 +87,7 @@ export default function About() {
                     <ul className="spotify__grid">
                         {savedTracks.items.map((track) => (
                             <li key={track.track.id} className="grid__item">
-                                <p className='item__text'>
+                                <p className="item__text">
                                     <span>{track.track.artists[0].name}</span>
                                     <span>{track.track.name}</span>
                                     <span>{track.track.album.release_date.slice(0, 4)}</span>
