@@ -32,6 +32,9 @@ importers:
       react-router:
         specifier: ^7.0.2
         version: 7.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      simple-icons:
+        specifier: ^14.3.0
+        version: 14.3.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.15.0
@@ -1604,6 +1607,10 @@ packages:
   side-channel@1.1.0:
     resolution: {integrity: sha512-ZX99e6tRweoUXqR+VBrslhda51Nh5MTQwou5tnUDgbtyM0dBgmhEDtWGP/xbKn6hqfPRHujUNwz5fy/wbbhnpw==}
     engines: {node: '>= 0.4'}
+
+  simple-icons@14.3.0:
+    resolution: {integrity: sha512-GXWVF/UBkR04Hg3qcoEOHzI9ZNedXPhcphWraWRCJAenkG6Vsf5ycmVFDX90OK+5oeg86M5tYqBNS4npgG7/5g==}
+    engines: {node: '>=0.12.18'}
 
   snake-case@3.0.4:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
@@ -3406,6 +3413,8 @@ snapshots:
       side-channel-list: 1.0.0
       side-channel-map: 1.0.1
       side-channel-weakmap: 1.0.2
+
+  simple-icons@14.3.0: {}
 
   snake-case@3.0.4:
     dependencies:
