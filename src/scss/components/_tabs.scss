@@ -30,7 +30,7 @@
     cursor: pointer;
 
     @include respond-to('small') {
-        margin-top: 0 2rem;
+        margin: 0 2rem;
     }
 }
 
@@ -81,6 +81,16 @@
     svg {
         width: 3rem;
         height: 3rem;
+    }
+
+    @include respond-to('small') {
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+        gap: 1rem;
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
     }
 }
 

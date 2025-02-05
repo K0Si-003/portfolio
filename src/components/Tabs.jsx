@@ -33,7 +33,7 @@ export default function Tabs({ tabs, defaultIndex = 0 }) {
                     ))}
                 </ul>
             </nav>
-            <div className="tabs__content container-md">
+            <div className="tabs__content">
                 {tabs.map((tab, index) => (
                     <motion.div
                         key={tab.id}
