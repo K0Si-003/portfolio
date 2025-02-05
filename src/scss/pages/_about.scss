@@ -6,17 +6,21 @@
 
 .about__info,
 .about__skills,
-.about__spotify {
+.about__bonus {
     margin: 0 auto 6rem auto;
 
     @include respond-to('small') {
         margin: 0 auto 3rem auto;
     }
-}
+}   
 
 .about__skills {
     padding: 4rem 0;
     background-color: $dark-blue;
+}
+
+.skills__text {
+    text-align: center;
 }
 
 .about__title {
@@ -33,9 +37,9 @@
 }
 
 .about__text {
-    @include hsl-alpha($white, 0.9);
+    @include hsl-alpha($white, 0.8);
     margin: 1.6rem 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
     opacity: 0.9;
 
