@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getSavedTracks } from '../services/SpotifyAPI.js'
+import { getSavedTracks } from '../utils/SpotifyAPI.js'
 import tabsContent from '../data/tabsContent.jsx'
 import Tabs from '../components/Tabs.jsx'
 
@@ -49,7 +49,7 @@ export default function About() {
                 </p>
                 <p className="about__text">
                     <span>
-                        C'est ensuite par mes expériences professionelles, en start-up et en agence
+                        C'est ensuite par mes expériences personnelles et professionelles,
                         que j'ai pu progresser sur le terrain. J'ai pu y apprendre l'utilisation de
                         nouveau outils, les bonnes pratiques pour le réferencement. Je me suis aussi
                         formé de mon côté sur de la 3D orienté web. L'utilisation de Three.js, React
@@ -70,7 +70,7 @@ export default function About() {
                     <h2>Compétences</h2>
                     <p>
                         <span className="about__text">
-                            Voici un petit aperçu des outils et langages que j'utilise pour mes projets.
+                            Voici un aperçu des outils et langages que j'utilise pour mes projets.
                         </span>
                     </p>
                 </div>
@@ -78,8 +78,11 @@ export default function About() {
                     <Tabs tabs={tabsContent} />
                 </div>
             </section>
-            <section className="about__spotify container-md">
-                <h2 className="about__title">Spotify</h2>
+            <section className="about__bonus container-md">
+                <h2>Bonus</h2>
+                <div className="more__text">
+                    <p>Grimpe, jeux de société, montagne, poele à bois et sport de glisse !</p>
+                </div>
                 <p>Un petit coin pour découvrir les dernières pépites dans mes oreilles</p>
                 {fetchingData ? (
                     <p>Loading...</p>
