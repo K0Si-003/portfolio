@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion } from 'motion/react'
 import cn from 'classnames'
-import { li } from 'motion/react-client'
+import Tab from './Tab.jsx'
 
 export default function Tabs({ tabs, defaultIndex = 0 }) {
     const [activeTabIndex, setActiveTabIndex] = useState(defaultIndex)
@@ -33,7 +33,7 @@ export default function Tabs({ tabs, defaultIndex = 0 }) {
                     ))}
                 </ul>
             </nav>
-            <div className="tabs__content">
+            <div className="tabs__content container-md">
                 {tabs.map((tab, index) => (
                     <motion.div
                         key={tab.id}
@@ -46,7 +46,7 @@ export default function Tabs({ tabs, defaultIndex = 0 }) {
                         }
                         transition={{ duration: 0.4 }}
                     >
-                        {activeTabIndex === index && <>{tab.content}</>}
+                        {activeTabIndex === index && <Tab content={tab} />}
                     </motion.div>
                 ))}
             </div>
