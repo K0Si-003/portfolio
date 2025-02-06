@@ -5,7 +5,7 @@
 }
 
 .tabs__wrapper {
-    padding-top: 4rem;
+    padding-top: 3rem;
 
     @include respond-to('small') {
         padding-top: 2rem;
@@ -45,14 +45,22 @@
 }
 
 .tab svg {
-    width: 2rem;
+    width: 1.8rem;
     margin-right: 0.5rem;
     fill: $white;
+
+    @include respond-to('small') {
+        width: 1.4rem;
+    }
 }
 
 .tab:nth-child(2) {
     svg {
-        width: 1.5rem;
+        width: 1.4rem;
+
+        @include respond-to('small') {
+            width: 1rem;
+        }
     }
 }
 
@@ -75,7 +83,7 @@
 .tab__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 0.5rem;
 
     svg {
@@ -85,7 +93,6 @@
 
     @include respond-to('small') {
         grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
-        gap: 1rem;
 
         svg {
             width: 2rem;

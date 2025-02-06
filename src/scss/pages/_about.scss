@@ -42,21 +42,10 @@
 
 .spotify__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 1rem;
     margin-top: 3rem;
-
-    @include respond-to('medium') {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-    }
-
-    @include respond-to('small') {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        gap: 1rem;
-    }
+    padding: 0.5rem;
 }
 
 .grid__item {
@@ -78,7 +67,7 @@
         font-size: 1rem;
         font-weight: 300;
         text-align: center;
-        transition: opacity 0.5s linear;
+        transition: opacity 1s linear;
 
         span:nth-child(1) {
             color: $white;

@@ -89,12 +89,17 @@ export default function About() {
                 </div>
             </section>
             <section className="about__bonus container-md">
-                <h2 className="about__title">Bonus</h2>
+                <h2 className="about__title">Hobbies</h2>
                 <p className="about__text">
-                    Grimpe, jeux de société, montagne, poele à bois et sport de glisse !
+                    Escalade, jeux de société, montagne, poele à bois et sport de glisse. A la ville
+                    ou dans la nature, seul ou entres amis, j'aime découvrir de nouvelles choses et
+                    m'enrichir de nouvelles expériences.
                 </p>
                 <p className="about__text">
-                    Un petit coin pour découvrir les dernières pépites dans mes oreilles
+                    <span>
+                        J'ai un grand attrait pour la musique aussi, qui prend une place importante
+                        dans mes journée. Je vous partage ici mes derniers coups de coeur musicaux.
+                    </span>
                 </p>
                 {fetchingData ? (
                     <p>On dirais que Spotify ne veut pas nous montrer ma playlist...</p>
@@ -103,7 +108,9 @@ export default function About() {
                         {savedTracks.items.map((track) => (
                             <li
                                 key={track.track.id}
-                                className={`grid__item ${selectedTrackId === track.track.id ? 'selected' : ''}`}
+                                className={`grid__item ${
+                                    selectedTrackId === track.track.id ? 'selected' : ''
+                                }`}
                                 onClick={() => handleClick(track.track.id)}
                             >
                                 <p className="item__text">
