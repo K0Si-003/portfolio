@@ -20,10 +20,21 @@ export default function Tab({ content }) {
                             '--neon-color': item.color,
                         }}
                     >
-                        <IconSvg
-                            icon={item.icon}
-                            color={isMobile ? item.color : hoveredIndex === index ? item.color : 'var(--active-tab-color)'}
-                        />
+                        {item.name === 'VSCode' ? (
+                            item.icon
+                        ) : (
+                            <IconSvg
+                                icon={item.icon}
+                                color={
+                                    isMobile
+                                        ? item.color
+                                        : hoveredIndex === index
+                                        ? item.color
+                                        : 'var(--active-tab-color)'
+                                }
+                            />
+                        )}
+
                         <span className={`icon__name ${hoveredIndex === index ? 'visible' : ''}`}>
                             {item.name}
                         </span>

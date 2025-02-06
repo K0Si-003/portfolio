@@ -1,5 +1,6 @@
 import Code from '../assets/images/code-icon.svg?react'
 import Tools from '../assets/images/tools-icon.svg?react'
+import Vscode from '../assets/images/vscode.svg?react'
 import {
     siHtml5,
     siCss3,
@@ -36,10 +37,11 @@ const toolsIcons = [
     { icon: siDocker, color: '#2496ED', name: 'Docker' },
     { icon: siGulp, color: '#CF4647', name: 'Gulp' },
     { icon: siVite, color: '#646CFF', name: 'Vite' },
-    { icon: siVscodium, color: '#2F80ED', name: 'VSCodium' },
+    { icon: <Vscode />, color: '#2F80ED', name: 'VSCode' },
     { icon: siGithub, color: '#181717', name: 'Github' },
     { icon: siFigma, color: '#F24E1E', name: 'Figma' },
 ]
+
 
 const tabs = [
     {
