@@ -1,1 +1,217 @@
 @use '../abstracts' as *;
+
+.projects {
+    padding: 2rem 0;
+    color: $white;
+}
+
+.projects__intro {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+.projects__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    @include respond-to('small') {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+    }
+}
+
+.project__card {
+    position: relative;
+    max-width: 40%;
+    height: 460px;
+    padding: 1.2rem;
+    flex: 0 0 40%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    @include respond-to('small') {
+        flex: 1 1 auto;
+        max-width: 100%;
+        height: 360px;
+        padding: 1.2rem 0;
+    }
+
+    &:hover {
+        transform: scale(1.01);
+    }
+}
+
+.project__card:nth-child(4n + 1),
+.project__card:nth-child(4n + 4) {
+    flex: 0 0 60%;
+    max-width: 60%;
+
+    @include respond-to('small') {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
+}
+
+.project__card:nth-child(odd) {
+    padding-left: 0;
+}
+
+.project__card:nth-child(even) {
+    padding-right: 0;
+}
+
+.project__card:last-child {
+    flex: 1 1 auto;
+    max-width: 100%;
+    padding-right: 0;
+}
+
+.card__wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.card__wrapper.open {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    overflow: hidden;
+    z-index: 400;
+    transform: translateY(-50%);
+    height: auto;
+}
+
+.card__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: $dark-blue;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    pointer-events: auto;
+    border: 2px solid rgba($grey, 0.3);
+}
+
+.open .card__content {
+    height: auto;
+    max-width: 700px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.image__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+
+    @include respond-to('small') {
+        height: 360px;
+    }
+}
+
+.open .image__wrapper {
+    @include respond-to('small') {
+        height: 260px;
+    }
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.open .image__wrapper,
+.open .title__wrapper {
+    z-index: 400;
+}
+
+.title__wrapper {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    max-width: 300px;
+    padding: 0 1rem;
+    background-color: rgba($grey, 0.8);
+    border-radius: 0.4rem;
+
+    h3 {
+        margin: 8px 0;
+        text-shadow: 0 5px 10px rgba($dark-blue, 0.9);
+    }
+}
+
+.open .title__wrapper {
+    top: 350px;
+    left: 30px;
+    background-color: rgba($dark-blue, 0.8);
+
+    @include respond-to('small') {
+        top: 200px;
+        left: 20px;
+    }
+}
+
+.content__wrapper {
+    position: relative;
+    width: 90vw;
+    max-width: 700px;
+    padding: 460px 35px 35px 35px;
+    overflow-y: auto;
+
+    @include respond-to('small') {
+        padding: 280px 35px 35px 20px;
+    }
+}
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+    .tag {
+        margin: 0 1rem 0.5rem 0;
+        padding: 0.3rem 0.7rem;
+        border-radius: 0.4rem;
+        background-color: rgba($grey, 0.3);
+        font-size: 0.85rem;
+        font-family: $font-mono;
+    }
+}
+
+.card__link {
+    color: rgba($white, 0.8);
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba($dark-blue, 0.9);
+    will-change: opacity;
+    z-index: 300;
+}
