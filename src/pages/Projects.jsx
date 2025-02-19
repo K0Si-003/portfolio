@@ -98,14 +98,18 @@ export default function Projects() {
                                             </span>
                                         ))}
                                     </div>
-                                    <p>{selectedProject.description}</p>
-                                    <a
-                                        href={selectedProject.link}
-                                        target="_blank"
-                                        className='card__link'
-                                    >
-                                        Voir le projet
-                                    </a>
+                                    <div className="card__text">
+                                        <p>{selectedProject.description}</p>
+                                    </div>
+                                    {selectedProject.link && (
+                                        <a
+                                            href={selectedProject.link}
+                                            target="_blank"
+                                            className="card__link"
+                                        >
+                                            Voir le projet
+                                        </a>
+                                    )}
                                 </motion.div>
                             </motion.div>
                         </div>
