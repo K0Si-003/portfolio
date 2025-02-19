@@ -157,6 +157,8 @@
     border-radius: 0.4rem;
 
     h3 {
+        font-family: $font-secondary;
+        letter-spacing: 0.1rem;
         margin: 8px 0;
         text-shadow: 0 5px 10px rgba($dark-blue, 0.9);
     }
@@ -200,18 +202,55 @@
     }
 }
 
+.card__text {
+    color: rgba($white, 0.8);
+
+    span {
+        color: $white;
+        font-weight: 500;
+    }
+}
+
 .card__text:not(:last-child) {
     margin-bottom: 2rem;
 }
 
-.card__link {
+.card__links {
+    display: flex;
+    // flex-direction: row-reverse;
+    // justify-content: space-between;
+    align-items: center;
+}
+
+.project__link {
     color: rgba($white, 0.8);
     cursor: pointer;
     pointer-events: all;
     padding: 0.4rem 1.5rem;
-    margin: 0.5rem 0;
     border-radius: 0.4rem;
-    background-color: rgba($grey, 0.8);
+    background-color: rgba($grey, 0.6);
+    transition: all 0.3s ease;
+    font-family: $font-secondary;
+
+    &:hover {
+        background-color: $orange-accent;
+        color: $white;
+    }
+}
+
+.project__github {
+    margin-left: 1.5rem;
+    line-height: 0;
+    cursor: pointer;
+    pointer-events: all;
+
+    svg {
+        fill: rgba($white, 0.8);
+
+        &:hover {
+            fill: $orange-accent;
+        }
+    }
 }
 
 .overlay {
