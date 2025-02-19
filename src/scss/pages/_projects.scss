@@ -200,10 +200,18 @@
     }
 }
 
+.card__text:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
 .card__link {
     color: rgba($white, 0.8);
     cursor: pointer;
     pointer-events: all;
+    padding: 0.4rem 1.5rem;
+    margin: 0.5rem 0;
+    border-radius: 0.4rem;
+    background-color: rgba($grey, 0.8);
 }
 
 .overlay {
