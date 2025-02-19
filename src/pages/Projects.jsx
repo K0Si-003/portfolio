@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import projects from '../data/projects.js'
-import { Link } from 'react-router'
+import projects from '../data/projectsContent.jsx'
+import IconSvg from '../components/IconSvg.jsx'
+import { siGithub } from 'simple-icons'
 
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null)
@@ -101,15 +102,28 @@ export default function Projects() {
                                     <div className="card__text">
                                         <p>{selectedProject.description}</p>
                                     </div>
-                                    {selectedProject.link && (
-                                        <a
-                                            href={selectedProject.link}
-                                            target="_blank"
-                                            className="card__link"
-                                        >
-                                            Voir le projet
-                                        </a>
-                                    )}
+                                    {selectedProject.link || selectedProject.github ? (
+                                        <div className="card__links">
+                                            {selectedProject.link && (
+                                                <a
+                                                    href={selectedProject.link}
+                                                    target="_blank"
+                                                    className="project__link"
+                                                >
+                                                    Voir le projet
+                                                </a>
+                                            )}
+                                            {selectedProject.github && (
+                                                <a
+                                                    href={selectedProject.github}
+                                                    target="_blank"
+                                                    className="project__github"
+                                                >
+                                                    <IconSvg icon={siGithub} color="white" />
+                                                </a>
+                                            )}
+                                        </div>
+                                    ) : ''}
                                 </motion.div>
                             </motion.div>
                         </div>

@@ -7,15 +7,22 @@ const projects = [
     {
         id: 'cube-3d-puzzle',
         title: 'Cube Puzzle 3D',
-        description: 'Projet de mini jeu vidéo en Three.js, inspiré par les casses-têtes INSIDE³ de Romain-Guirec Piotte.',
+        description: 
+        <p>
+            Projet de mini jeu vidéo utilisant <span>Three.js</span>, inspiré par les casses-têtes <span>INSIDE³</span> de Romain-Guirec Piotte.
+        </p>,
         image: cube,
-        tags: ['React', 'Three.js', 'Rapier', 'Zustand', 'React Three Fiber', 'Blender'],
-        link: 'https://cube-puzzle-3d.netlify.app'
+        tags: ['Three.js', 'React', 'Rapier', 'Zustand', 'React Three Fiber', 'Blender'],
+        link: 'https://cube-puzzle-3d.netlify.app',
+        github: 'https://github.com/K0Si-003/cube-puzzle-3d'
     },
     {
         id: 'labservatoire',
         title: 'LABservatoire',
-        description: 'Site vitrine pour l\'association LABservatoire.',
+        description:
+        <p>
+            Site vitrine pour l'association LABservatoire.
+        </p>,
         image: labservatoire,
         tags: ['Grav', 'SCSS', 'Gulp'],
         link: 'labservatoire.org'
@@ -23,21 +30,30 @@ const projects = [
     {
         id: 'particles',
         title: 'Particles',
-        description: 'Effet de particules sur la page d\'accueil, utilisant le Canvas 2d',
+        description:
+        <p>
+            Effet de particules sur la page d'accueil, utilisant le Canvas 2d.
+        </p>,
         image: particles,
         tags: ['HTML', 'JavaScript', 'CSS']
     },
     {
         id: 'marble-race',
         title: 'Marble Race',
-        description: 'Mini jeu, fais pendant une formation Three.js.',
+        description:
+        <p>
+            'Mini jeu, fais pendant une formation Three.js.'
+        </p>,
         image: marble,
         tags: ['React', 'React Three Fiber']
     },  
     {
         id: 'valiris',
         title: 'Valiris',
-        description: 'Projet d\études, front office, back-office. Site vitrine et gestion de locations d\'appartement.',
+        description:
+        <p>
+            Projet d'études, front office, back-office. Site vitrine et gestion de locations d'appartement.
+        </p>,
         image: 'https://picsum.photos/800',
         tags: ['React', 'Node.js', 'Express']
     }
