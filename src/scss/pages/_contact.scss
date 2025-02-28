@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 75vh;
+}
+
+.contact__title {
+    z-index: 100;
+}
+
+.contact__model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -9,6 +9,7 @@
 
 .header__logo {
     height: 3rem;
+    z-index: 100;
 
     @include respond-to('small') {
         height: 2.5rem;
