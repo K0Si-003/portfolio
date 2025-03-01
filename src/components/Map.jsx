@@ -1,39 +1,20 @@
 import { Suspense, useEffect, useState, useRef } from 'react'
-import { useFrame, useThree } from '@react-three/fiber'
-import { useGLTF, MapControls } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
+
+import Lights from './Lights.jsx'
+import Controls from './Controls.jsx'
+import Marker from './Marker.jsx'
+import Modal from './Modal.jsx'
+
 import Buildings from '../assets/models/full-buildings.glb'
 import Floor from '../assets/models/elevation.glb'
 
-const vertexShader = `
-varying vec2 vUv;
+import vertexShader from '../shaders/vertex.glsl?raw'
+import fragmentShader from '../shaders/fragment.glsl?raw'
 
-void main() {
-  vUv = uv;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-}
-`
-
-const fragmentShader = `
-uniform float uOpacity;
-uniform vec2 uResolution;
-uniform vec3 uBackgroundColor;
-
-varying vec2 vUv;
-
-void main() {
-  vec2 grid = abs(fract(vUv * vec2(uResolution.x / uResolution.y, 1.0) * 150.0) - 0.5);
-
-  float line = min(grid.x, grid.y);
-  float color = 1.0 - smoothstep(0.0, 0.02, line);
-
-  vec3 finalColor = uBackgroundColor;
-
-  finalColor = mix(finalColor, vec3(1.0), color * uOpacity);
-
-  gl_FragColor = vec4(finalColor, 1.0);
-}
-`
+import markers from '../data/mapContent.js'
 
 const floorMaterial = new THREE.ShaderMaterial({
     vertexShader,
@@ -46,56 +27,11 @@ const floorMaterial = new THREE.ShaderMaterial({
     },
 })
 
-const Controls = ({ controlsRef }) => {
-    const { camera, gl } = useThree()
-
-    useEffect(() => {
-        if (controlsRef.current) {
-            const controls = controlsRef.current
-
-            // Map Limit
-            const minX = -2500
-            const maxX = 2500
-            const minY = -2500
-            const maxY = 2500
-            const minZ = -2500
-            const maxZ = 2500
-
-            controls.addEventListener('change', () => {
-                const position = controls.target
-
-                if (position.x < minX) position.x = minX
-                if (position.x > maxX) position.x = maxX
-                if (position.y < minY) position.y = minY
-                if (position.y > maxY) position.y = maxY
-                if (position.z < minZ) position.z = minZ
-                if (position.z > maxZ) position.z = maxZ
-
-                controls.target.copy(position)
-            })
-
-            // Zoom limit
-            const minZoom = 300
-            const maxZoom = 1000
-
-            controls.addEventListener('change', () => {
-                const distance = controls.getDistance()
-
-                if (distance < minZoom) controls.minDistance = minZoom
-                if (distance > maxZoom) controls.maxDistance = maxZoom
-            })
-
-            // Rotation limit
-            controls.minPolarAngle = 0
-            controls.maxPolarAngle = Math.PI / 3
-        }
-    }, [])
-
-    return <MapControls ref={controlsRef} args={[camera, gl.domElement]} />
-}
-
 export default function Map() {
     const controlsRef = useRef()
+
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalText, setModalText] = useState('')
 
     const buildings = useGLTF(Buildings)
     const floor = useGLTF(Floor)
@@ -131,13 +67,83 @@ export default function Map() {
         }
     }, [])
 
+    const handleMarkerClick = (text, markerPosition, markerRotation) => {
+        setModalText(text)
+        setIsModalOpen(true)
+
+        const controls = controlsRef.current
+        controls.enabled = false
+
+        const camera = controls.object
+        
+        const startPosition = camera.position.clone()
+        const startTarget = controls.target.clone()
+
+        const endTarget = new THREE.Vector3(...markerPosition)
+        const endPosition = new THREE.Vector3(...markerPosition).add(
+            new THREE.Vector3(0, 0, 150).applyEuler(new THREE.Euler(...markerRotation))
+        )
+
+        const positionDistance = startPosition.distanceTo(endPosition)
+        const targetDistance = startTarget.distanceTo(endTarget)
+        const totalDistance = positionDistance + targetDistance
+        const duration = totalDistance * 0.75
+
+        let startTime = performance.now()
+
+        const animate = () => {
+            const elapsed = performance.now() - startTime
+            const t = Math.min(elapsed / duration, 1)
+
+            // Animate camera position
+            camera.position.lerpVectors(startPosition, endPosition, t)
+
+            // Animate controls target
+            controls.target.lerpVectors(startTarget, endTarget, t)
+            controls.update()
+
+            if (t < 1) {
+                requestAnimationFrame(animate)
+            } else {
+                controls.enabled = true
+            }
+        }
+
+        animate()
+    }
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false)
+    }
+
     return (
         <>
-            <Controls controlsRef={controlsRef} />
-            <group position={[0, -169, 0]} scale={1}>
-                <primitive object={buildings.scene} />
-                <primitive object={floor.scene} />
-            </group>
+            <Canvas
+                shadows
+                camera={{
+                    fov: 75,
+                    near: 0.5,
+                    far: 6000,
+                    position: [-1000, 20, 1500],
+                }}
+            >
+                <Lights />
+                <Controls controlsRef={controlsRef} />
+                <group position={[0, -169, 0]} scale={1}>
+                    <primitive object={buildings.scene} />
+                    <primitive object={floor.scene} />
+                    {markers.map((marker, index) => (
+                        <Marker
+                            key={index}
+                            position={marker.position}
+                            onClick={() =>
+                                handleMarkerClick(marker.text, marker.position, marker.rotation)
+                            }
+                        />
+                    ))}
+                </group>
+            </Canvas>
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal} text={modalText} />
         </>
     )
 }
