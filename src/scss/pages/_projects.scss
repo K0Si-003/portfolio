@@ -83,6 +83,12 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+    filter: grayscale(50%);
+    transition: filter 0.3s ease-in-out;
+
+    &:hover {
+        filter: grayscale(0);
+    }
 }
 
 .card__wrapper.open {
@@ -95,6 +101,7 @@
     z-index: 400;
     transform: translateY(-50%);
     height: auto;
+    filter: grayscale(0);
 }
 
 .card__content {
