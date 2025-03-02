@@ -11,9 +11,9 @@ export default function Home() {
     // Loader for contact page model
     useEffect(() => {
         if (progress === 100) {
-            setIsLoaded(true);
+            setIsLoaded(true)
         }
-    }, [progress]);
+    }, [progress])
 
     const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
     const anchors = ['index', 'projects', 'about', 'contact']
@@ -123,23 +123,25 @@ export default function Home() {
                 <Particles />
             </div>
             <div className={`curtain ${isLoaded ? 'hidden' : ''}`}>
-                <svg
-                    className="spinner"
-                    width="51px"
-                    height="51px"
-                    viewBox="0 0 52 52"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <circle
-                        class="path"
-                        fill="none"
-                        strokeWidth="5"
-                        strokeLinecap="round"
-                        cx="26"
-                        cy="26"
-                        r="23"
-                    ></circle>
-                </svg>
+                {!isLoaded && (
+                    <svg
+                        className="spinner"
+                        width="51px"
+                        height="51px"
+                        viewBox="0 0 52 52"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            class="path"
+                            fill="none"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                            cx="26"
+                            cy="26"
+                            r="23"
+                        ></circle>
+                    </svg>
+                )}
             </div>
         </main>
     )
