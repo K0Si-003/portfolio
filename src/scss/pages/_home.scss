@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 // ----------------
-// Curtain intro
+// Curtain intro and Loader
 // ----------------
 
 .curtain {
@@ -22,11 +22,8 @@
     transform: translate3d(0, -100%, 0);
 }
 
-$offset: 160;
-$duration: 1.4s;
-
 .spinner {
-    animation: rotator $duration linear infinite;
+    animation: rotator 1.4s linear infinite;
 }
 
 @keyframes rotator {
@@ -39,10 +36,10 @@ $duration: 1.4s;
 }
 
 .path {
-    stroke-dasharray: $offset;
+    stroke-dasharray: 160;
     stroke-dashoffset: 0;
     transform-origin: center;
-    animation: dash $duration ease-in-out infinite, colors ($duration * 4) ease-in-out infinite;
+    animation: dash 1.4s ease-in-out infinite, colors (1.4s * 4) ease-in-out infinite;
 }
 
 @keyframes colors {
@@ -65,14 +62,14 @@ $duration: 1.4s;
 
 @keyframes dash {
     0% {
-        stroke-dashoffset: $offset;
+        stroke-dashoffset: 160;
     }
     50% {
-        stroke-dashoffset: $offset/3;
+        stroke-dashoffset: 160/3;
         transform: rotate(135deg);
     }
     100% {
-        stroke-dashoffset: $offset;
+        stroke-dashoffset: 160;
         transform: rotate(450deg);
     }
 }
