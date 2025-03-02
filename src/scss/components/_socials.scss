@@ -13,9 +13,17 @@
 }
 
 .menu__socials {
+    margin-top: 2rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+
     @include respond-to("medium-up") {
         display: none;
     }
+}
+
+.menu.is-active .menu__socials {
+    opacity: 1;
 }
 
 .socials__link {
