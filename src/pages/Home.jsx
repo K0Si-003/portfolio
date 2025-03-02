@@ -1,16 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Particles from '../components/Particles.jsx'
 import ReactFullpage from '@fullpage/react-fullpage'
-import { NavLink } from 'react-router'
 import Button from '../components/Button.jsx'
+import { useProgress } from '@react-three/drei'
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
+    const { progress } = useProgress()
 
-    // Fake loading for curtain
-    setTimeout(() => {
-        setIsLoaded(true)
-    }, 300)
+    // Loader for contact page model
+    useEffect(() => {
+        if (progress === 100) {
+            setIsLoaded(true);
+        }
+    }, [progress]);
 
     const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
     const anchors = ['index', 'projects', 'about', 'contact']
@@ -119,7 +122,25 @@ export default function Home() {
             <div className="background">
                 <Particles />
             </div>
-            <div className={`curtain ${isLoaded ? 'hidden' : ''}`}></div>
+            <div className={`curtain ${isLoaded ? 'hidden' : ''}`}>
+                <svg
+                    className="spinner"
+                    width="51px"
+                    height="51px"
+                    viewBox="0 0 52 52"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        class="path"
+                        fill="none"
+                        strokeWidth="5"
+                        strokeLinecap="round"
+                        cx="26"
+                        cy="26"
+                        r="23"
+                    ></circle>
+                </svg>
+            </div>
         </main>
     )
 }
