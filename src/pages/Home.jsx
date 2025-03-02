@@ -118,7 +118,7 @@ export default function Home() {
                     )
                 }}
             />
-            <p className={`scrolldown ${isScrollBtnActive ? 'active' : 'inactive'}`}>SCROLLDOWN</p>
+            <p className={`scrolldown ${isScrollBtnActive ? 'active' : 'inactive'}`}>SCROLL ⇒</p>
             <div className="background">
                 <Particles />
             </div>
