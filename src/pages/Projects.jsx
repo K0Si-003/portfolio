@@ -100,7 +100,7 @@ export default function Projects() {
                                         ))}
                                     </div>
                                     <div className="card__text">
-                                        <p>{selectedProject.description}</p>
+                                        {selectedProject.description}
                                     </div>
                                     {selectedProject.link || selectedProject.github ? (
                                         <div className="card__links">
