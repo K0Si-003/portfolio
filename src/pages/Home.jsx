@@ -3,6 +3,8 @@ import Particles from '../components/Particles.jsx'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Button from '../components/Button.jsx'
 import { useProgress } from '@react-three/drei'
+import projectImage from '../assets/images/projects/cube/cube.png'
+import Spinner from '../components/Spinner.jsx'
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -13,10 +15,12 @@ export default function Home() {
         if (progress === 100) {
             setIsLoaded(true)
         }
+        const imageProject = document.querySelector('.image-project');
+        imageProject.style.backgroundImage = `url(${projectImage})`;
     }, [progress])
 
     const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
-    const anchors = ['index', 'projects', 'about', 'contact']
+    const anchors = ['index', 'projets', 'a-propos', 'contact']
 
     const onLeave = (origin, destination, direction) => {
         if (origin.index === 0) {
@@ -65,7 +69,7 @@ export default function Home() {
                                         <p className="subtitle">
                                             Venez découvrir mes derniers projets et expérimentations
                                         </p>
-                                        <Button route={'/projects'} className={'btn-home'} />
+                                        <Button route={'/projets'} className={'btn-home'} />
                                     </div>
                                     <div className="image image-project">
                                         <div className="image-over">
@@ -88,7 +92,7 @@ export default function Home() {
                                             Je vous partage ici un peu plus sur mes compétences et
                                             inspirations.
                                         </p>
-                                        <Button route={'/about'} className={'btn-home'} />
+                                        <Button route={'/a-propos'} className={'btn-home'} />
                                     </div>
                                 </div>
                             </section>
@@ -106,12 +110,6 @@ export default function Home() {
                                         </p>
                                         <Button route={'/contact'} className={'btn-home'} />
                                     </div>
-                                    <div className="image image-contact">
-                                        <div className="image-over">
-                                            <div className="image-cover"></div>
-                                            <div className="image-cover"></div>
-                                        </div>
-                                    </div>
                                 </div>
                             </section>
                         </ReactFullpage.Wrapper>
@@ -123,25 +121,8 @@ export default function Home() {
                 <Particles />
             </div>
             <div className={`curtain ${isLoaded ? 'hidden' : ''}`}>
-                {!isLoaded && (
-                    <svg
-                        className="spinner"
-                        width="51px"
-                        height="51px"
-                        viewBox="0 0 52 52"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <circle
-                            class="path"
-                            fill="none"
-                            strokeWidth="5"
-                            strokeLinecap="round"
-                            cx="26"
-                            cy="26"
-                            r="23"
-                        ></circle>
-                    </svg>
-                )}
+
+                {!isLoaded && <Spinner isLoaded={isLoaded} />}
             </div>
         </main>
     )

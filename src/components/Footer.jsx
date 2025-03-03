@@ -42,13 +42,13 @@ export default function footer() {
                             <NavLink to="/">Accueil</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/">Projets</NavLink>
+                            <NavLink to="/projets">Projets</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/">A propos</NavLink>
+                            <NavLink to="/a-propos">A propos</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/">Contact</NavLink>
+                            <NavLink to="/contact">Contact</NavLink>
                         </li>
                     </ul>
                 </div>

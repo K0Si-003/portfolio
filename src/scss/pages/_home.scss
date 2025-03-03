@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 // ----------------
-// Curtain intro
+// Curtain intro and Loader
 // ----------------
 
 .curtain {
@@ -20,61 +20,6 @@
 
 .curtain.hidden {
     transform: translate3d(0, -100%, 0);
-}
-
-$offset: 160;
-$duration: 1.4s;
-
-.spinner {
-    animation: rotator $duration linear infinite;
-}
-
-@keyframes rotator {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(270deg);
-    }
-}
-
-.path {
-    stroke-dasharray: $offset;
-    stroke-dashoffset: 0;
-    transform-origin: center;
-    animation: dash $duration ease-in-out infinite, colors ($duration * 4) ease-in-out infinite;
-}
-
-@keyframes colors {
-    0% {
-        stroke: $orange;
-    } 
-    25% {
-        stroke: $orange-accent;
-    }  
-    50% {
-        stroke: $dark-blue-accent;
-    }   
-    75% {
-        stroke: $blue;
-    }
-    100% {
-        stroke: $white;
-    }
-}
-
-@keyframes dash {
-    0% {
-        stroke-dashoffset: $offset;
-    }
-    50% {
-        stroke-dashoffset: $offset/3;
-        transform: rotate(135deg);
-    }
-    100% {
-        stroke-dashoffset: $offset;
-        transform: rotate(450deg);
-    }
 }
 
 // ----------------
@@ -108,7 +53,7 @@ $duration: 1.4s;
 
 .text {
     position: absolute;
-    top: 50%;
+    top: 40%;
     margin-left: 11%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -141,7 +86,7 @@ $duration: 1.4s;
     text-shadow: 0 10px 30px rgba(2, 11, 22, 0.5);
 
     @include respond-to('medium') {
-        font-size: 4.8rem;
+        font-size: 4.5rem;
     }
 
     @include respond-to('small') {
@@ -156,12 +101,25 @@ $duration: 1.4s;
 
     &:nth-child(2) {
         font-size: 3.5rem;
+
+        @include respond-to('medium') {
+            font-size: 2.8rem;
+            letter-spacing: 0rem;
+        }        
+        
+        @include respond-to('small') {
+            font-size: 1.8rem;
+        }
     }
 }
 
 .subtitle {
     font-size: 1.3rem;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 2px black;    
+    
+    @include respond-to('medium') {
+        font-size: 1.1rem;
+    }
 }
 
 .text .separator {
@@ -213,6 +171,7 @@ $duration: 1.4s;
 .image {
     display: block;
     position: relative;
+    top: -10%;
     width: 40%;
     height: 60%;
     margin: 0 8% 0 auto;
@@ -232,12 +191,8 @@ $duration: 1.4s;
 }
 
 .image-project {
-    background: url('https://picsum.photos/800') no-repeat center;
-    background-size: cover;
-}
-
-.image-contact {
-    background: url('https://picsum.photos/800') no-repeat center;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 }
 

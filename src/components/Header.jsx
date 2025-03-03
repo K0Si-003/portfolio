@@ -36,12 +36,12 @@ export default function Header() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" onClick={toggleMenu}>
+                        <NavLink to="/a-propos" onClick={toggleMenu}>
                             About
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/projects" onClick={toggleMenu}>
+                        <NavLink to="/projets" onClick={toggleMenu}>
                             Projects
                         </NavLink>
                     </li>
