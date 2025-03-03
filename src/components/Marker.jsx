@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 
-export default function Marker({ position, onClick }) {
+export default function Marker({ position, onClick, color}) {
     const markerRef = useRef()
     const amplitude = 20
     const speed = 0.5
@@ -30,7 +30,7 @@ export default function Marker({ position, onClick }) {
             onPointerOut={handlePointerOut}
         >
             <cylinderGeometry args={[40, 0, 80, 10, 1]} />
-            <meshStandardMaterial color={'hsl(12.88, 87.21%, 57.06%)'} />
+            <meshStandardMaterial color={color ? color : 'hsl(13.42, 49.35%, 30.2%)'} />
         </mesh>
     )
 }

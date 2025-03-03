@@ -14,7 +14,7 @@ import Floor from '../assets/models/elevation.glb'
 import vertexShader from '../shaders/vertex.glsl?raw'
 import fragmentShader from '../shaders/fragment.glsl?raw'
 
-import markers from '../data/mapContent.js'
+import markers from '../data/mapContent.jsx'
 
 const floorMaterial = new THREE.ShaderMaterial({
     vertexShader,
@@ -124,7 +124,7 @@ export default function Map() {
                     fov: 75,
                     near: 0.5,
                     far: 6000,
-                    position: [-1000, 20, 1500],
+                    position: [-500, 0, 800],
                 }}
             >
                 <Lights />
@@ -139,6 +139,7 @@ export default function Map() {
                             onClick={() =>
                                 handleMarkerClick(marker.text, marker.position, marker.rotation)
                             }
+                            color={marker.color}
                         />
                     ))}
                 </group>
