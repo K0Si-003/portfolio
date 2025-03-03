@@ -1,8 +1,31 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Informations
 
-Currently, two official plugins are available:
+Projet réalisé avec React pour une première version de mon portfolio.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+J'ai utilisé plusieurs librairie et outils pour le réaliser :
+- React
+- Vite
+- SCSS
+- Canvas 2D
+- Motion
+- React Three Fiber
+- BlenderGIS
+
+## Setup
+
+Nécessite [Node.js](https://nodejs.org/en/download/).
+
+Exécuter les commande suivantes.
+
+``` bash
+# Installer les dépendances
+npm install
+
+# Exécuter un serveur local
+npm run dev
+
+# Lancer un build pour la production
+npm run build
+```
