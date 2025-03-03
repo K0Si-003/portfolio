@@ -65,7 +65,7 @@
         stroke-dashoffset: 160;
     }
     50% {
-        stroke-dashoffset: 160/3;
+        stroke-dashoffset: calc(160/3);
         transform: rotate(135deg);
     }
     100% {
