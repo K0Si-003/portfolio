@@ -4,6 +4,7 @@ import ReactFullpage from '@fullpage/react-fullpage'
 import Button from '../components/Button.jsx'
 import { useProgress } from '@react-three/drei'
 import projectImage from '../assets/images/projects/cube/cube.png'
+import Spinner from '../components/Spinner.jsx'
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -120,25 +121,8 @@ export default function Home() {
                 <Particles />
             </div>
             <div className={`curtain ${isLoaded ? 'hidden' : ''}`}>
-                {!isLoaded && (
-                    <svg
-                        className="spinner"
-                        width="51px"
-                        height="51px"
-                        viewBox="0 0 52 52"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <circle
-                            className="path"
-                            fill="none"
-                            strokeWidth="5"
-                            strokeLinecap="round"
-                            cx="26"
-                            cy="26"
-                            r="23"
-                        ></circle>
-                    </svg>
-                )}
+
+                {!isLoaded && <Spinner isLoaded={isLoaded} />}
             </div>
         </main>
     )

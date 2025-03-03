@@ -22,58 +22,6 @@
     transform: translate3d(0, -100%, 0);
 }
 
-.spinner {
-    animation: rotator 1.4s linear infinite;
-}
-
-@keyframes rotator {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(270deg);
-    }
-}
-
-.path {
-    stroke-dasharray: 160;
-    stroke-dashoffset: 0;
-    transform-origin: center;
-    animation: dash 1.4s ease-in-out infinite, colors (1.4s * 4) ease-in-out infinite;
-}
-
-@keyframes colors {
-    0% {
-        stroke: $orange;
-    } 
-    25% {
-        stroke: $orange-accent;
-    }  
-    50% {
-        stroke: $dark-blue-accent;
-    }   
-    75% {
-        stroke: $blue;
-    }
-    100% {
-        stroke: $white;
-    }
-}
-
-@keyframes dash {
-    0% {
-        stroke-dashoffset: 160;
-    }
-    50% {
-        stroke-dashoffset: calc(160/3);
-        transform: rotate(135deg);
-    }
-    100% {
-        stroke-dashoffset: 160;
-        transform: rotate(450deg);
-    }
-}
-
 // ----------------
 // General
 // ----------------
