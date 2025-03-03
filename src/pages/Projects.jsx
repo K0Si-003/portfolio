@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import projects from '../data/projectsContent.jsx'
 import IconSvg from '../components/IconSvg.jsx'
@@ -6,6 +6,10 @@ import { siGithub } from 'simple-icons'
 
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState(null)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleProjectClick = (project) => {
         setSelectedProject(project)

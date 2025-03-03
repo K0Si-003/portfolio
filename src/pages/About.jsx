@@ -20,6 +20,7 @@ export default function About() {
             setSavedTracks(data[0])
             setFetchingStatus(false)
         })
+        window.scrollTo(0, 0);
     }, [])
 
     const handleClick = (trackId) => {
@@ -31,7 +32,7 @@ export default function About() {
     return (
         <main className="about">
             <section className="about__info container-md">
-                <h1 className="about__title">About</h1>
+                <h1 className="about__title">À propos</h1>
                 <p className="about__text">
                     <span>
                         Salut, moi c'est Hugo, développeur front-end basé à Lyon. Je vous souhaites
@@ -91,7 +92,7 @@ export default function About() {
             <section className="about__bonus container-md">
                 <h2 className="about__title">Hobbies</h2>
                 <p className="about__text">
-                    Escalade, jeux de société, montagne, poele à bois et sport de glisse. A la ville
+                    Escalade, jeux de société, montagne, poele à bois et sport de glisse. À la ville
                     ou dans la nature, seul ou entres amis, j'aime découvrir de nouvelles choses et
                     m'enrichir de nouvelles expériences.
                 </p>

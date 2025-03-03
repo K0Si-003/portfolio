@@ -224,8 +224,6 @@
 
 .card__links {
     display: flex;
-    // flex-direction: row-reverse;
-    // justify-content: space-between;
     align-items: center;
 }
 
@@ -250,6 +248,10 @@
     line-height: 0;
     cursor: pointer;
     pointer-events: all;
+
+    &:only-child {
+        margin-left: 0;
+    }
 
     svg {
         fill: rgba($white, 0.8);

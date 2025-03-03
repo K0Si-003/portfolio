@@ -2,6 +2,7 @@ import cube from '../assets/images/projects/cube/cube.png'
 import marble from '../assets/images/projects/marble/marble.png'
 import particles from '../assets/images/projects/particles/particles.png'
 import labservatoire from '../assets/images/projects/labservatoire/labservatoire.png'
+import portfolio from '../assets/images/projects/portfolio/portfolio.png'
 
 const projects = [
     {
@@ -25,7 +26,7 @@ const projects = [
         </p>,
         image: labservatoire,
         tags: ['Grav', 'SCSS', 'Gulp'],
-        link: 'labservatoire.org'
+        link: 'https://labservatoire.org/'
     },  
     {
         id: 'particles',
@@ -42,21 +43,25 @@ const projects = [
         title: 'Marble Race',
         description:
         <p>
-            'Mini jeu, fais pendant une formation Three.js.'
+            Mini jeu, fais pendant une formation Three.js.
         </p>,
         image: marble,
-        tags: ['React', 'React Three Fiber']
-    },  
+        tags: ['React', 'React Three Fiber'],
+        github: 'https://github.com/K0Si-003/marble-race'
+    },
     {
-        id: 'valiris',
-        title: 'Valiris',
+        id: '3D-map',
+        title: '3D Map',
         description:
         <p>
-            Projet d'études, front office, back-office. Site vitrine et gestion de locations d'appartement.
+            Un peu de 3d avec la page contact de mon portfolio.
+            Utilisation de BlenderGIS pour modéliser la ville de Lyon.
         </p>,
-        image: 'https://picsum.photos/800',
-        tags: ['React', 'Node.js', 'Express']
+        image: portfolio,
+        tags: ['React', 'SCSS', 'R3F', 'BlenderGIS'],
+        github: 'https://github.com/K0Si-003/portfolio/blob/main/src/components/Map.jsx'
     }
+
 ]
 
 export default projects
