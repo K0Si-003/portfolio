@@ -156,6 +156,7 @@
 
         @include respond-to('medium') {
             font-size: 2.8rem;
+            letter-spacing: 0rem;
         }        
         
         @include respond-to('small') {
