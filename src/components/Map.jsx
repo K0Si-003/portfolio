@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState, useRef } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
@@ -7,6 +7,7 @@ import Lights from './Lights.jsx'
 import Controls from './Controls.jsx'
 import Marker from './Marker.jsx'
 import Modal from './Modal.jsx'
+import useMatchMedia from '../utils/useMatchMedia.jsx'
 
 import Buildings from '../assets/models/full-buildings.glb'
 import Floor from '../assets/models/elevation.glb'
@@ -32,6 +33,10 @@ export default function Map() {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [modalText, setModalText] = useState('')
+
+    const isMobile = useMatchMedia('(max-width: 992px)')
+
+    const cameraPosition = isMobile ? [-2000, 100, -500] : [-500, 0, 800]
 
     const buildings = useGLTF(Buildings)
     const floor = useGLTF(Floor)
@@ -121,10 +126,10 @@ export default function Map() {
             <Canvas
                 shadows
                 camera={{
-                    fov: 75,
+                    fov: 65,
                     near: 0.5,
                     far: 6000,
-                    position: [-500, 0, 800],
+                    position: cameraPosition
                 }}
             >
                 <Lights />

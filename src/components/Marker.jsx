@@ -21,6 +21,8 @@ export default function Marker({ position, onClick, color}) {
         document.body.style.cursor = 'default'
     }
 
+
+
     return (
         <mesh
             ref={markerRef}
