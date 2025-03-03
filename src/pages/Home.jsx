@@ -132,7 +132,7 @@ export default function Home() {
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <circle
-                            class="path"
+                            className="path"
                             fill="none"
                             strokeWidth="5"
                             strokeLinecap="round"
