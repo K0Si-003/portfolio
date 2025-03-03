@@ -16,7 +16,7 @@ export default function Home() {
     }, [progress])
 
     const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
-    const anchors = ['index', 'projects', 'about', 'contact']
+    const anchors = ['index', 'projets', 'a-propos', 'contact']
 
     const onLeave = (origin, destination, direction) => {
         if (origin.index === 0) {
@@ -65,7 +65,7 @@ export default function Home() {
                                         <p className="subtitle">
                                             Venez découvrir mes derniers projets et expérimentations
                                         </p>
-                                        <Button route={'/projects'} className={'btn-home'} />
+                                        <Button route={'/projets'} className={'btn-home'} />
                                     </div>
                                     <div className="image image-project">
                                         <div className="image-over">
@@ -88,7 +88,7 @@ export default function Home() {
                                             Je vous partage ici un peu plus sur mes compétences et
                                             inspirations.
                                         </p>
-                                        <Button route={'/about'} className={'btn-home'} />
+                                        <Button route={'/a-propos'} className={'btn-home'} />
                                     </div>
                                 </div>
                             </section>
