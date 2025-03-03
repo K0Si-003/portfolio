@@ -243,12 +243,8 @@
 }
 
 .image-project {
-    background: url('https://picsum.photos/800') no-repeat center;
-    background-size: cover;
-}
-
-.image-contact {
-    background: url('https://picsum.photos/800') no-repeat center;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 }
 

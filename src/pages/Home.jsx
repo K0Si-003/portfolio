@@ -3,6 +3,7 @@ import Particles from '../components/Particles.jsx'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Button from '../components/Button.jsx'
 import { useProgress } from '@react-three/drei'
+import projectImage from '../assets/images/projects/cube/cube.png'
 
 export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -13,6 +14,8 @@ export default function Home() {
         if (progress === 100) {
             setIsLoaded(true)
         }
+        const imageProject = document.querySelector('.image-project');
+        imageProject.style.backgroundImage = `url(${projectImage})`;
     }, [progress])
 
     const [isScrollBtnActive, setIsScrollBtnActive] = useState(true)
@@ -105,12 +108,6 @@ export default function Home() {
                                             Pour toutes demandes, ça se passe ici.
                                         </p>
                                         <Button route={'/contact'} className={'btn-home'} />
-                                    </div>
-                                    <div className="image image-contact">
-                                        <div className="image-over">
-                                            <div className="image-cover"></div>
-                                            <div className="image-cover"></div>
-                                        </div>
                                     </div>
                                 </div>
                             </section>
