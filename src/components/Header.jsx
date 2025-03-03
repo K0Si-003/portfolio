@@ -32,17 +32,17 @@ export default function Header() {
                 <ul className="menu__wrapper">
                     <li>
                         <NavLink to="/" onClick={toggleMenu}>
-                            Home
+                            Accueil
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to="/a-propos" onClick={toggleMenu}>
-                            About
+                            À propos
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to="/projets" onClick={toggleMenu}>
-                            Projects
+                            Projets
                         </NavLink>
                     </li>
                     <li>
