@@ -86,14 +86,12 @@ export default function About() {
                 <h2 className="about__title">Hobbies</h2>
                 <p className="about__text">
                     Escalade, jeux de société, montagne, poele à bois et sport de glisse. À la ville
-                    ou dans la nature, j'aime découvrir de nouvelles choses et
-                    m'enrichir de nouvelles expériences.
+                    ou dans la nature, j'aime découvrir de nouvelles choses et m'enrichir de
+                    nouvelles expériences.
                 </p>
                 <p className="about__text">
-                    <span>
-                        J'ai un grand attrait pour la musique aussi, qui prend une place importante
-                        dans mes journée. Je vous partage ici mes derniers coups de coeur musicaux.
-                    </span>
+                    J'ai un grand attrait pour la musique aussi, qui prend une place importante dans
+                    mes journée. Je vous partage ici mes derniers coups de coeur musicaux.
                 </p>
                 {fetchingData ? (
                     <p>On dirais que Spotify ne veut pas nous montrer ma playlist...</p>
