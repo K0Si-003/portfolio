@@ -106,7 +106,7 @@ export default function Home() {
                                             <span />
                                         </div>
                                         <p className="subtitle">
-                                            Pour toutes demandes, ça se passe ici.
+                                            Pour toutes demandes, ça se passe <span>ici</span>.
                                         </p>
                                         <Button route={'/contact'} className={'btn-home'} />
                                     </div>
