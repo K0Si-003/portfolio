@@ -22,7 +22,7 @@ const projects = [
         title: 'LABservatoire',
         description:
         <p>
-            Site vitrine pour l'association LABservatoire.
+            Site vitrine pour l'association <span>LABservatoire</span>.
         </p>,
         image: labservatoire,
         tags: ['Grav', 'SCSS', 'Gulp'],
@@ -43,7 +43,7 @@ const projects = [
         title: 'Marble Race',
         description:
         <p>
-            Mini jeu, fais pendant une formation Three.js.
+            Mini jeu, fais pendant une formation <span>Three.js</span>.
         </p>,
         image: marble,
         tags: ['React', 'React Three Fiber'],
@@ -55,7 +55,7 @@ const projects = [
         description:
         <p>
             Un peu de 3d avec la page contact de mon portfolio.
-            Utilisation de BlenderGIS pour modéliser la ville de Lyon.
+            Utilisation de <span>BlenderGIS</span> pour modéliser la ville de Lyon.
         </p>,
         image: portfolio,
         tags: ['React', 'SCSS', 'R3F', 'BlenderGIS'],

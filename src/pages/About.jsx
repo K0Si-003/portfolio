@@ -20,7 +20,7 @@ export default function About() {
             setSavedTracks(data[0])
             setFetchingStatus(false)
         })
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0)
     }, [])
 
     const handleClick = (trackId) => {
@@ -34,46 +34,39 @@ export default function About() {
             <section className="about__info container-md">
                 <h1 className="about__title">À propos</h1>
                 <p className="about__text">
-                    <span>
-                        Salut, moi c'est Hugo, développeur front-end basé à Lyon. Je vous souhaites
-                        la bienvenue sur mon petit bout d'internet. Ici je vous partagerais mes
-                        projets réalisés, mes dernières expérimentations et de quoi en apprendre un
-                        peu plus sur moi et mon parcours.
-                    </span>
+                    Salut, moi c'est Hugo, développeur front-end basé à Lyon. Je vous souhaites la
+                    bienvenue sur mon petit bout d'internet. Ici je vous partagerais mes projets
+                    réalisés, mes dernières expérimentations et de quoi en apprendre un peu plus sur
+                    moi et mon parcours.
                 </p>
                 <p className="about__text">
-                    <span>
-                        Me concernant, ma première rencontre avec le monde du web se fait il y a
-                        quelques années déjà, à une époque où Flash et ActionScript étaient encore
-                        d'actualité. Dans un premier temps je me suis intéresser pour le web design,
-                        les questions d'UX/UI, comment faire un site web facilement. Et déjà, avec
-                        comme objectif: comment animer une pages web.
-                    </span>
+                    Me concernant, ma première rencontre avec le monde du web se fait il y a
+                    quelques années déjà, à une époque où Flash et ActionScript étaient encore
+                    d'actualité. Dans un premier temps je me suis intéresser pour le web design, les
+                    questions d'UX/UI, comment faire un site web facilement. Et déjà, avec comme
+                    objectif: comment animer une pages web.
                 </p>
                 <p className="about__text">
+                    Par la suite, c'est avec une formation à la Wild Code School, que je plonge dans
+                    le grand bain du développement web, avec l'apprentisage de tous les outils du
+                    développement web moderne. J'y ai acquis des bases{' '}
                     <span>
-                        C'est par la suite, avec une formation à la Wild Code School, que je plonge
-                        dans le grand bain du développement web, avec l'apprentisage de tous les
-                        outils du développement web moderne. J'y ai acquis des bases{' '}
-                        <a href="#skills">techniques</a> et méthodologiques.
-                    </span>
+                        <a href="#skills">techniques</a>
+                    </span>{' '}
+                    et méthodologiques.
                 </p>
                 <p className="about__text">
-                    <span>
-                        C'est ensuite par mes expériences personnelles et professionelles, que j'ai
-                        pu progresser sur le terrain. J'ai pu y apprendre l'utilisation de nouveau
-                        outils, les bonnes pratiques pour le réferencement. Je me suis aussi formé
-                        de mon côté sur de la 3D orienté web. L'utilisation de Three.js, React Three
-                        Fiber et Blender.
-                    </span>
+                    Mes expériences personnelles et professionelles ont continuer de m'enrichir, et
+                    j'ai pu progresser sur le terrain. J'ai pu y apprendre l'utilisation de nouveau
+                    outils, les bases du réferencement. Je me suis aussi formé de mon côté sur de
+                    les technologie de la 3D orienté web (WebGL). L'utilisation de Three.js, React
+                    Three Fiber et Blender.
                 </p>
                 <p className="about__text">
-                    <span>
-                        Comme prochaine étape de mon parcours, je souhaiterais approfondir les
-                        frameworks orienté SSR, passé a typescript et continuer de monter en
-                        compétences sur le web 3D avec les nouvelles technologies comme les shaders
-                        via TSL.
-                    </span>
+                    Comme prochaine étape de mon parcours, je souhaiterais encore monter en
+                    compétences sur divers outils. Les frameworks orienté SSR, typescript et
+                    continuer d'apprendre sur le web 3D avec les dernières avancées amenées par l'
+                    API WebGPU et les possibilités qu'elle offre.
                 </p>
             </section>
             <section className="about__skills container-full" id="skills">
@@ -81,7 +74,7 @@ export default function About() {
                     <h2 className="about__title">Compétences</h2>
                     <p className="about__text">
                         <span>
-                            Voici un aperçu des outils et langages que j'utilise pour mes projets.
+                            Voici un aperçu des langages et outils que j'utilise pour mes projets.
                         </span>
                     </p>
                 </div>
@@ -93,14 +86,12 @@ export default function About() {
                 <h2 className="about__title">Hobbies</h2>
                 <p className="about__text">
                     Escalade, jeux de société, montagne, poele à bois et sport de glisse. À la ville
-                    ou dans la nature, seul ou entres amis, j'aime découvrir de nouvelles choses et
-                    m'enrichir de nouvelles expériences.
+                    ou dans la nature, j'aime découvrir de nouvelles choses et m'enrichir de
+                    nouvelles expériences.
                 </p>
                 <p className="about__text">
-                    <span>
-                        J'ai un grand attrait pour la musique aussi, qui prend une place importante
-                        dans mes journée. Je vous partage ici mes derniers coups de coeur musicaux.
-                    </span>
+                    J'ai un grand attrait pour la musique aussi, qui prend une place importante dans
+                    mes journée. Je vous partage ici mes derniers coups de coeur musicaux.
                 </p>
                 {fetchingData ? (
                     <p>On dirais que Spotify ne veut pas nous montrer ma playlist...</p>
