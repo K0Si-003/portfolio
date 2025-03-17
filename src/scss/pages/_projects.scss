@@ -77,6 +77,12 @@
     padding-right: 0;
 }
 
+.project__card:nth-child(2) {
+    .card__image {
+        object-position: 0% 50%;
+    }
+}
+
 .card__wrapper {
     position: relative;
     display: block;
@@ -151,7 +157,7 @@
 .title__wrapper {
     position: absolute;
     top: 15px;
-    left: 15px;
+    right: 15px;
     max-width: 300px;
     padding: 0 1rem;
     background-color: rgba($grey, 0.8);
@@ -168,6 +174,7 @@
 .open .title__wrapper {
     top: 350px;
     left: 30px;
+    right: auto;
     background-color: rgba($dark-blue, 0.8);
 
     @include respond-to('small') {
