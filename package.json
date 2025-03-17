@@ -15,6 +15,7 @@
     "@react-three/fiber": "^9.0.4",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
+    "lenis": "^1.2.3",
     "motion": "^11.18.1",
     "react": "^19.0.0",
     "react-device-detect": "^2.2.3",
