@@ -9,8 +9,8 @@ import Marker from './Marker.jsx'
 import Modal from './Modal.jsx'
 import useMatchMedia from '../utils/useMatchMedia.jsx'
 
-import Buildings from '../assets/models/full-buildings.glb'
-import Floor from '../assets/models/elevation.glb'
+import Buildings from '../assets/models/map_full-buildings-draco.glb'
+import Floor from '../assets/models/elevation-draco.glb'
 
 import vertexShader from '../shaders/vertex.glsl?raw'
 import fragmentShader from '../shaders/fragment.glsl?raw'
@@ -135,8 +135,8 @@ export default function Map() {
                 <Lights />
                 <Controls controlsRef={controlsRef} />
                 <group position={[0, -169, 0]} scale={1}>
-                    <primitive object={buildings.scene} />
                     <primitive object={floor.scene} />
+                    <primitive object={buildings.scene} />
                     {markers.map((marker, index) => (
                         <Marker
                             key={index}
