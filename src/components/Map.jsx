@@ -24,7 +24,7 @@ const floorMaterial = new THREE.ShaderMaterial({
     uniforms: {
         uOpacity: { value: 0.5 },
         uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-        uBackgroundColor: { value: new THREE.Color('hsl(204, 12.80%, 15.30%)') },
+        uBackgroundColor: { value: new THREE.Color('hsl(0, 0%, 50%)') },
     },
 })
 
